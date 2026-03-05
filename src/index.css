@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Mantém o visual “limpo” do preview */
+html,
+body {
+  height: 100%;
+}
