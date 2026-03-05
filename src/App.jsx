@@ -748,11 +748,8 @@ export default function PortfolioBaseLayout() {
                       <Code className="h-5 w-5" style={{ color: "var(--accent)" }} />
                       Skills (Dados)
                     </div>
-                    <div className="max-w-xl space-y-4 rounded-2xl border bg-white/60 p-5 text-left shadow-sm">
-                      <SkillBar label="SQL" value={75} />
-                      <SkillBar label="PySpark" value={65} />
-                      <SkillBar label="Python" value={60} />
-                      <SkillBar label="Terraform" value={45} />
+                    <div className="max-w-xl rounded-2xl border bg-white/60 p-5 text-left shadow-sm">
+                      <TechPillGroup items={["Python", "SQL", "PySpark", "ETL", "Terraform"]} />
                     </div>
                   </div>
 
@@ -761,11 +758,10 @@ export default function PortfolioBaseLayout() {
                       <Cloud className="h-5 w-5" style={{ color: "var(--accent)" }} />
                       Cloud / Ferramentas
                     </div>
-                    <div className="max-w-xl space-y-4 rounded-2xl border bg-white/60 p-5 text-left shadow-sm">
-                      <SkillBar label="AWS Glue" value={70} />
-                      <SkillBar label="S3" value={70} />
-                      <SkillBar label="Athena" value={60} />
-                      <SkillBar label="Step Functions" value={55} />
+                    <div className="max-w-xl rounded-2xl border bg-white/60 p-5 text-left shadow-sm">
+                      <TechPillGroup
+                        items={["AWS Glue", "S3", "Athena", "Lambda", "Step Functions", "CloudWatch", "Terraform", "ECS"]}
+                      />
                     </div>
                   </div>
                 </div>
