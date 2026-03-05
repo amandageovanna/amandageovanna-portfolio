@@ -367,20 +367,20 @@ export default function PortfolioBaseLayout() {
   );
 
   const educationItems = useMemo(
-    () => [
-      {
-        curso: "ADS — SPTech",
-        logo:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaC1HUrJ7tn8-Kthf32n0ooqS8Ls5xxB3i4A&s",
-        detalhe: "Tecnólogo em Análise e Desenvolvimento de Sistemas",
-        periodo: "2023–2025",
-      },
+    () => [     
       {
         curso: "SIS — Impacta Tecnologia",
         logo:
           "https://media.licdn.com/dms/image/v2/C4D0BAQEG8qandFQNjw/company-logo_200_200/company-logo_200_200/0/1630550349647/impacta_tecnologia_logo?e=1773878400&v=beta&t=pBbNqG1bPEK81tbnRrv-OHdTc7mYXqFpCDBtej6lfGY",
         detalhe: "Bacharelado em Sistemas de Informação",
         periodo: "2025–2028",
+      },
+      {
+        curso: "ADS — SPTech",
+        logo:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaC1HUrJ7tn8-Kthf32n0ooqS8Ls5xxB3i4A&s",
+        detalhe: "Tecnólogo em Análise e Desenvolvimento de Sistemas",
+        periodo: "2023–2025",
       },
       {
         curso: "Enfermagem — UNIP",
