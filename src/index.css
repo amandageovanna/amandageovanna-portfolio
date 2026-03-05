@@ -1,9 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-/* Mantém o visual “limpo” do preview */
-html,
-body {
+html, body {
   height: 100%;
 }
