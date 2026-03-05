@@ -30,6 +30,28 @@ const NAV = [
   { id: "itau", label: "Trajetória no Itaú", icon: Grid },
 ];
 
+function TechPill({ label }) {
+  return (
+    <span
+      className="inline-flex items-center rounded-full border bg-white/70 px-3 py-1 text-xs font-semibold text-zinc-800 shadow-sm"
+      style={{ borderColor: "rgba(0,0,0,.08)" }}
+    >
+      {label}
+    </span>
+  );
+}
+
+function TechPillGroup({ items = [] }) {
+  return (
+    <div className="flex flex-wrap gap-2">
+      {items.map((t) => (
+        <TechPill key={t} label={t} />
+      ))}
+    </div>
+  );
+}
+
+
 function SkillBar({ label, value }) {
   return (
     <div className="space-y-2">
@@ -479,7 +501,9 @@ export default function PortfolioBaseLayout() {
           style={{ background: theme.sidebar }}
         >
           <div className="mb-10">
-            <div className="text-3xl font-extrabold tracking-tight">{brand}</div>
+            <div className="text-3xl font-extrabold tracking-tight">
+              {brand}
+            </div>
           </div>
 
           <nav className="flex flex-1 flex-col gap-2">
@@ -492,7 +516,9 @@ export default function PortfolioBaseLayout() {
                   onClick={() => setActive(item.id)}
                   className="group flex w-full items-center gap-3 rounded-xl px-4 py-3 text-left transition"
                   style={{
-                    background: isActive ? "rgba(255,255,255,.65)" : "transparent",
+                    background: isActive
+                      ? "rgba(255,255,255,.65)"
+                      : "transparent",
                     border: isActive
                       ? "1px solid rgba(0,0,0,.08)"
                       : "1px solid transparent",
@@ -516,11 +542,15 @@ export default function PortfolioBaseLayout() {
           <div className="mt-10 flex flex-col gap-3">
             <button
               type="button"
-              onClick={() => setThemeMode((m) => (m === "itau" ? "rose" : "itau"))}
+              onClick={() =>
+                setThemeMode((m) => (m === "itau" ? "rose" : "itau"))
+              }
               className="w-full rounded-xl border bg-white/60 px-4 py-3 text-left text-sm font-semibold text-zinc-900 transition hover:bg-white"
               style={{ borderColor: "rgba(0,0,0,.10)" }}
             >
-              {themeMode === "itau" ? "Voltar para tema rosa" : "Ativar tema Itaú"}
+              {themeMode === "itau"
+                ? "Voltar para tema rosa"
+                : "Ativar tema Itaú"}
             </button>
 
             <div className="flex items-center gap-3">
@@ -545,7 +575,9 @@ export default function PortfolioBaseLayout() {
             </div>
           </div>
 
-          <div className="mt-8 text-xs text-zinc-500">© {new Date().getFullYear()} Amanda</div>
+          <div className="mt-8 text-xs text-zinc-500">
+            © {new Date().getFullYear()} Amanda
+          </div>
         </aside>
 
         {/* CONTENT */}
@@ -558,7 +590,9 @@ export default function PortfolioBaseLayout() {
               <div className="text-lg font-extrabold">{brand}</div>
               <button
                 type="button"
-                onClick={() => setThemeMode((m) => (m === "itau" ? "rose" : "itau"))}
+                onClick={() =>
+                  setThemeMode((m) => (m === "itau" ? "rose" : "itau"))
+                }
                 className="rounded-xl border bg-white/70 px-3 py-2 text-xs font-semibold text-zinc-900"
                 style={{ borderColor: "rgba(0,0,0,.10)" }}
               >
@@ -626,15 +660,22 @@ export default function PortfolioBaseLayout() {
                         />
                       </div>
 
-                      <div className="mt-3 text-sm italic text-zinc-700">“Porque bom você se torna”.</div>
+                      <div className="mt-3 text-sm italic text-zinc-700">
+                        “Porque bom você se torna”.
+                      </div>
                     </div>
 
                     <div className="space-y-3">
-                      <div className="text-lg font-bold text-zinc-900">Meus Interesses</div>
+                      <div className="text-lg font-bold text-zinc-900">
+                        Meus Interesses
+                      </div>
                       <div className="grid grid-cols-2 gap-4">
                         <InterestItem icon={Book} label="Livros" />
                         <InterestItem icon={Dumbbell} label="Se exercitar" />
-                        <InterestItem icon={Sparkles} label="Descobrir coisas novas" />
+                        <InterestItem
+                          icon={Sparkles}
+                          label="Descobrir coisas novas"
+                        />
                         <InterestItem icon={Puzzle} label="Quebra-cabeças" />
                       </div>
                     </div>
@@ -642,8 +683,13 @@ export default function PortfolioBaseLayout() {
 
                   <div className="space-y-4 text-left">
                     <div>
-                      <div className="text-xl font-extrabold text-zinc-900">Amanda Geovanna</div>
-                      <div className="mt-1 text-sm font-medium" style={{ color: theme.accent }}>
+                      <div className="text-xl font-extrabold text-zinc-900">
+                        Amanda Geovanna
+                      </div>
+                      <div
+                        className="mt-1 text-sm font-medium"
+                        style={{ color: theme.accent }}
+                      >
                         Estagiária de Engenharia de Dados
                       </div>
                     </div>
@@ -651,25 +697,32 @@ export default function PortfolioBaseLayout() {
                     <div className="space-y-4">
                       <p className="text-base leading-relaxed text-zinc-700">
                         Oi! Eu sou a Amanda e estou construindo minha jornada em{" "}
-                        <strong>Engenharia de Dados</strong>. No <strong>Itaú</strong>, atuo na comunidade{" "}
-                        <strong>Esteira Única de Investimentos</strong>, dentro da{" "}
-                        <strong>Squad PosMov</strong>, trabalhando na modernização da jornada de dados de investimentos.
+                        <strong>Engenharia de Dados</strong>. No{" "}
+                        <strong>Itaú</strong>, atuo na comunidade{" "}
+                        <strong>Esteira Única de Investimentos</strong>, dentro
+                        da <strong>Squad PosMov</strong>, trabalhando na
+                        modernização da jornada de dados de investimentos.
                       </p>
 
                       <p className="text-base leading-relaxed text-zinc-700">
-                        Durante o estágio, atuei em etapas do pipeline como <strong>ingestão</strong>,{" "}
-                        <strong>processamento</strong> e <strong>validação de dados</strong>, contribuindo para a qualidade
-                        das informações utilizadas pelo negócio.
+                        Durante o estágio, atuei em etapas do pipeline como{" "}
+                        <strong>ingestão</strong>,{" "}
+                        <strong>processamento</strong> e{" "}
+                        <strong>validação de dados</strong>, contribuindo para a
+                        qualidade das informações utilizadas pelo negócio.
                       </p>
 
                       <p className="text-base leading-relaxed text-zinc-700">
-                        No dia a dia, trabalho com <strong>AWS</strong> (Glue, Athena, S3, Lambda e CloudWatch), além de{" "}
-                        <strong>Python</strong>, <strong>PySpark</strong> e <strong>SQL</strong>.
+                        No dia a dia, trabalho com <strong>AWS</strong> (Glue,
+                        Athena, S3, Lambda e CloudWatch), além de{" "}
+                        <strong>Python</strong>, <strong>PySpark</strong> e{" "}
+                        <strong>SQL</strong>.
                       </p>
 
                       <p className="text-base leading-relaxed text-zinc-700">
-                        Tenho interesse em continuar evoluindo em <strong>engenharia de dados na nuvem</strong> e no uso de{" "}
-                        <strong>dados</strong> para apoiar decisões.
+                        Tenho interesse em continuar evoluindo em{" "}
+                        <strong>engenharia de dados na nuvem</strong> e no uso
+                        de <strong>dados</strong> para apoiar decisões.
                       </p>
                     </div>
 
@@ -710,33 +763,48 @@ export default function PortfolioBaseLayout() {
                     Resumo Profissional
                   </h1>
                   <p className="mx-auto max-w-2xl text-xs leading-relaxed text-zinc-600 sm:text-sm">
-                    Uma visão resumida da minha formação e trajetória profissional.
+                    Uma visão resumida da minha formação e trajetória
+                    profissional.
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
                   <div className="space-y-5">
                     <div className="flex items-center justify-start gap-2 text-lg font-extrabold text-zinc-900">
-                      <GraduationCap className="h-5 w-5" style={{ color: "var(--accent)" }} />
+                      <GraduationCap
+                        className="h-5 w-5"
+                        style={{ color: "var(--accent)" }}
+                      />
                       Educação
                     </div>
 
                     <div className="space-y-4">
                       {educationItems.map((item) => (
-                        <EducationCard key={item.curso} item={item} theme={theme} />
+                        <EducationCard
+                          key={item.curso}
+                          item={item}
+                          theme={theme}
+                        />
                       ))}
                     </div>
                   </div>
 
                   <div className="space-y-5">
                     <div className="flex items-center justify-start gap-2 text-lg font-extrabold text-zinc-900">
-                      <Briefcase className="h-5 w-5" style={{ color: "var(--accent)" }} />
+                      <Briefcase
+                        className="h-5 w-5"
+                        style={{ color: "var(--accent)" }}
+                      />
                       Experiências
                     </div>
 
                     <div className="space-y-4">
                       {experienceItems.map((xp) => (
-                        <ExperienceCard key={`${xp.empresa}-${xp.cargo}`} xp={xp} theme={theme} />
+                        <ExperienceCard
+                          key={`${xp.empresa}-${xp.cargo}`}
+                          xp={xp}
+                          theme={theme}
+                        />
                       ))}
                     </div>
                   </div>
@@ -745,22 +813,41 @@ export default function PortfolioBaseLayout() {
                 <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
                   <div className="space-y-5">
                     <div className="flex items-center gap-2 text-left text-lg font-extrabold text-zinc-900">
-                      <Code className="h-5 w-5" style={{ color: "var(--accent)" }} />
+                      <Code
+                        className="h-5 w-5"
+                        style={{ color: "var(--accent)" }}
+                      />
                       Skills (Dados)
                     </div>
+
                     <div className="max-w-xl rounded-2xl border bg-white/60 p-5 text-left shadow-sm">
-                      <TechPillGroup items={["Python", "SQL", "PySpark", "ETL", "Terraform"]} />
+                      <TechPillGroup
+                        items={["Python", "SQL", "PySpark", "ETL", "Terraform"]}
+                      />
                     </div>
                   </div>
 
                   <div className="space-y-5">
                     <div className="flex items-center gap-2 text-left text-lg font-extrabold text-zinc-900">
-                      <Cloud className="h-5 w-5" style={{ color: "var(--accent)" }} />
+                      <Cloud
+                        className="h-5 w-5"
+                        style={{ color: "var(--accent)" }}
+                      />
                       Cloud / Ferramentas
                     </div>
+
                     <div className="max-w-xl rounded-2xl border bg-white/60 p-5 text-left shadow-sm">
                       <TechPillGroup
-                        items={["AWS Glue", "S3", "Athena", "Lambda", "Step Functions", "CloudWatch", "Terraform", "ECS"]}
+                        items={[
+                          "AWS Glue",
+                          "S3",
+                          "Athena",
+                          "Lambda",
+                          "Step Functions",
+                          "CloudWatch",
+                          "Terraform",
+                          "ECS",
+                        ]}
                       />
                     </div>
                   </div>
@@ -779,14 +866,15 @@ export default function PortfolioBaseLayout() {
                     Resumo Acadêmico
                   </h1>
                   <p className="mx-auto max-w-2xl text-xs leading-relaxed text-zinc-600 sm:text-sm">
-                    Estudos, projetos e experiências que fazem parte da minha formação.
+                    Estudos, projetos e experiências que fazem parte da minha
+                    formação.
                   </p>
                 </div>
 
                 <div className="flex flex-wrap items-center justify-center gap-6 text-sm font-semibold">
                   {[
                     { id: "dados", label: "Dados" },
-                    { id: "faculdade", label: "Faculdade" },                    
+                    { id: "faculdade", label: "Faculdade" },
                   ].map((t) => {
                     const isActiveTab = academicoTab === t.id;
                     return (
@@ -794,7 +882,9 @@ export default function PortfolioBaseLayout() {
                         key={t.id}
                         onClick={() => setAcademicoTab(t.id)}
                         className="relative px-1 pb-2 transition"
-                        style={{ color: isActiveTab ? theme.accent : "#3f3f46" }}
+                        style={{
+                          color: isActiveTab ? theme.accent : "#3f3f46",
+                        }}
                       >
                         {t.label}
                         {isActiveTab ? (
@@ -812,22 +902,39 @@ export default function PortfolioBaseLayout() {
                   <div className="space-y-10">
                     <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
                       <div className="rounded-2xl border bg-white/60 p-6 shadow-sm">
-                        <div className="text-base font-extrabold text-zinc-900">Apache Spark</div>
+                        <div className="text-base font-extrabold text-zinc-900">
+                          Apache Spark
+                        </div>
                         <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-zinc-700">
-                          <li>Configurei o Apache Spark e explorei DataFrames para manipulação de dados em Python.</li>
                           <li>
-                            Trabalhei com dados do Cadastro de CNPJs da Receita Federal, realizando transformações,
-                            consultas e operações de limpeza.
+                            Configurei o Apache Spark e explorei DataFrames para
+                            manipulação de dados em Python.
                           </li>
-                          <li>Utilizei Spark SQL e armazenei dados em formatos como CSV e Parquet.</li>
+                          <li>
+                            Trabalhei com dados do Cadastro de CNPJs da Receita
+                            Federal, realizando transformações, consultas e
+                            operações de limpeza.
+                          </li>
+                          <li>
+                            Utilizei Spark SQL e armazenei dados em formatos
+                            como CSV e Parquet.
+                          </li>
                         </ul>
                       </div>
 
                       <div className="rounded-2xl border bg-white/60 p-6 shadow-sm">
-                        <div className="text-base font-extrabold text-zinc-900">Apache Airflow</div>
+                        <div className="text-base font-extrabold text-zinc-900">
+                          Apache Airflow
+                        </div>
                         <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-zinc-700">
-                          <li>Criei e automatizei pipelines estruturando DAGs com tasks e operators.</li>
-                          <li>Desenvolvi um projeto para agendar um pipeline semanal de previsões meteorológicas.</li>
+                          <li>
+                            Criei e automatizei pipelines estruturando DAGs com
+                            tasks e operators.
+                          </li>
+                          <li>
+                            Desenvolvi um projeto para agendar um pipeline
+                            semanal de previsões meteorológicas.
+                          </li>
                         </ul>
                         <a
                           href="https://github.com/amandageovanna/turismo-dados-pipeline"
@@ -841,11 +948,20 @@ export default function PortfolioBaseLayout() {
                       </div>
 
                       <div className="rounded-2xl border bg-white/60 p-6 shadow-sm">
-                        <div className="text-base font-extrabold text-zinc-900">Databricks</div>
+                        <div className="text-base font-extrabold text-zinc-900">
+                          Databricks
+                        </div>
                         <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-zinc-700">
-                          <li>Configurei clusters e trabalhei com notebooks.</li>
-                          <li>Explorei Delta Lake, arquitetura Medallion e DLT.</li>
-                          <li>Utilizei Hive e SparkSQL para processamento de dados.</li>
+                          <li>
+                            Configurei clusters e trabalhei com notebooks.
+                          </li>
+                          <li>
+                            Explorei Delta Lake, arquitetura Medallion e DLT.
+                          </li>
+                          <li>
+                            Utilizei Hive e SparkSQL para processamento de
+                            dados.
+                          </li>
                         </ul>
                       </div>
 
@@ -854,9 +970,17 @@ export default function PortfolioBaseLayout() {
                           AWS Data Lake: Pipeline para Ingestão de Dados
                         </div>
                         <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-zinc-700">
-                          <li>Implementei pipeline de ingestão de dados externos usando S3, IAM e Lake Formation.</li>
-                          <li>Utilizei Python e Boto3 para automação da ingestão.</li>
-                          <li>Monitorei custos e execução com CloudWatch e AWS Budgets.</li>
+                          <li>
+                            Implementei pipeline de ingestão de dados externos
+                            usando S3, IAM e Lake Formation.
+                          </li>
+                          <li>
+                            Utilizei Python e Boto3 para automação da ingestão.
+                          </li>
+                          <li>
+                            Monitorei custos e execução com CloudWatch e AWS
+                            Budgets.
+                          </li>
                         </ul>
                         <a
                           href="https://github.com/amandageovanna/ingestao-dados-aws-pipeline/tree/main"
@@ -872,7 +996,10 @@ export default function PortfolioBaseLayout() {
 
                     <div className="space-y-6">
                       <div className="text-center">
-                        <h2 className="text-3xl font-extrabold" style={{ color: "var(--accent)" }}>
+                        <h2
+                          className="text-3xl font-extrabold"
+                          style={{ color: "var(--accent)" }}
+                        >
                           Badges
                         </h2>
                       </div>
@@ -896,9 +1023,11 @@ export default function PortfolioBaseLayout() {
                 {academicoTab === "faculdade" && (
                   <div className="space-y-8">
                     <p className="mx-auto max-w-3xl text-center text-sm text-zinc-600">
-                      Projetos desenvolvidos durante a graduação em Análise e Desenvolvimento de Sistemas, utilizando
-                      práticas de metodologias ágeis, como sprints e dailies. A proposta da faculdade era aproximar os
-                      alunos da dinâmica real do mercado de tecnologia desde o início da formação.
+                      Projetos desenvolvidos durante a graduação em Análise e
+                      Desenvolvimento de Sistemas, utilizando práticas de
+                      metodologias ágeis, como sprints e dailies. A proposta da
+                      faculdade era aproximar os alunos da dinâmica real do
+                      mercado de tecnologia desde o início da formação.
                     </p>
 
                     <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -926,8 +1055,6 @@ export default function PortfolioBaseLayout() {
                     </div>
                   </div>
                 )}
-
-                
               </div>
             )}
 
@@ -942,9 +1069,10 @@ export default function PortfolioBaseLayout() {
                     Trajetória no Itaú
                   </h1>
                   <p className="mx-auto max-w-2xl text-xs leading-relaxed text-zinc-600 sm:text-sm">
-                    Evolução durante o estágio na <strong>squad PosMov2</strong> da{" "}
-                    <strong>RT Esteira Única de Investimentos</strong>, participando da modernização da jornada de dados
-                    de investimentos.
+                    Evolução durante o estágio na <strong>squad PosMov2</strong>{" "}
+                    da <strong>RT Esteira Única de Investimentos</strong>,
+                    participando da modernização da jornada de dados de
+                    investimentos.
                   </p>
                 </div>
 
@@ -954,15 +1082,18 @@ export default function PortfolioBaseLayout() {
                     style={{ background: "var(--accentSoft)" }}
                   />
                   <div className="space-y-10">
-                      {itauTimeline.map((item, idx) => (
-                         <TimelineItem key={idx} item={item} />
-                      ))}
+                    {itauTimeline.map((item, idx) => (
+                      <TimelineItem key={idx} item={item} />
+                    ))}
                   </div>
                 </div>
 
                 <div className="space-y-6 pt-6">
                   <div className="text-center">
-                    <h2 className="text-2xl font-extrabold" style={{ color: "var(--accent)" }}>
+                    <h2
+                      className="text-2xl font-extrabold"
+                      style={{ color: "var(--accent)" }}
+                    >
                       Badges
                     </h2>
                     <p className="mt-2 text-sm text-zinc-600">
