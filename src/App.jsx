@@ -212,7 +212,7 @@ function TimelineItem({ item }) {
         className="absolute left-0 top-1 h-4 w-4 rounded-full"
         style={{ background: "var(--accent)" }}
       />
-      <div className="text-xs font-semibold text-zinc-500">{item.when}</div>
+      
       <div className="text-lg font-extrabold text-zinc-900">{item.title}</div>
       {item.subtitle ? (
         <div className="mt-2 text-sm font-semibold text-zinc-800">{item.subtitle}</div>
@@ -220,7 +220,7 @@ function TimelineItem({ item }) {
       {item.bullets?.length ? (
         <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-700">
           {item.bullets.map((b, idx) => (
-            <li key={`${item.when}-${idx}`}>{b}</li>
+            <li key={idx}>{b}</li>
           ))}
         </ul>
       ) : null}
@@ -795,8 +795,7 @@ export default function PortfolioBaseLayout() {
                 <div className="flex flex-wrap items-center justify-center gap-6 text-sm font-semibold">
                   {[
                     { id: "dados", label: "Dados" },
-                    { id: "faculdade", label: "Faculdade" },
-                    { id: "pessoais", label: "Pessoais" },
+                    { id: "faculdade", label: "Faculdade" },                    
                   ].map((t) => {
                     const isActiveTab = academicoTab === t.id;
                     return (
@@ -937,14 +936,7 @@ export default function PortfolioBaseLayout() {
                   </div>
                 )}
 
-                {academicoTab === "pessoais" && (
-                  <div className="rounded-2xl border bg-white/60 p-6 shadow-sm">
-                    <div className="text-base font-extrabold text-zinc-900">Pessoais</div>
-                    <div className="mt-4 rounded-xl border border-dashed bg-white/30 p-8 text-sm text-zinc-600">
-                      Em breve.
-                    </div>
-                  </div>
-                )}
+                
               </div>
             )}
 
@@ -971,9 +963,9 @@ export default function PortfolioBaseLayout() {
                     style={{ background: "var(--accentSoft)" }}
                   />
                   <div className="space-y-10">
-                    {itauTimeline.map((item) => (
-                      <TimelineItem key={item.when} item={item} />
-                    ))}
+                      {itauTimeline.map((item, idx) => (
+                         <TimelineItem key={idx} item={item} />
+                      ))}
                   </div>
                 </div>
 
