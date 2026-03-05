@@ -408,7 +408,6 @@ export default function PortfolioBaseLayout() {
   const itauTimeline = useMemo(
     () => [
       {
-        when: "Mai 2025",
         title: "Adaptação ao ecossistema de dados",
         subtitle: "Integração à comunidade da Esteira Única de Investimentos",
         bullets: [
@@ -420,7 +419,6 @@ export default function PortfolioBaseLayout() {
         ],
       },
       {
-        when: "Jun 2025",
         title: "Observabilidade e monitoramento de pipelines",
         subtitle: "Atuação em monitoramento e coleta de logs",
         bullets: [
@@ -429,8 +427,7 @@ export default function PortfolioBaseLayout() {
           "Integração com Datadog para observabilidade e acompanhamento de execução.",
         ],
       },
-      {
-        when: "Jul–Ago 2025",
+      {        
         title: "Ingestão e estruturação de dados (PEP)",
         subtitle: "Implementação de ingestão de dados de posição e movimento",
         bullets: [
@@ -442,7 +439,6 @@ export default function PortfolioBaseLayout() {
         ],
       },
       {
-        when: "Set 2025",
         title: "Data Quality e validação de regras de negócio",
         subtitle: "Aplicação de validações ao longo do pipeline",
         bullets: [
@@ -451,8 +447,7 @@ export default function PortfolioBaseLayout() {
           "Ajustes em processos de qualidade para reduzir inconsistências nos dados.",
         ],
       },
-      {
-        when: "Nov 2025",
+      {        
         title: "Otimização de performance",
         subtitle: "Iniciativa de melhoria de performance e custo",
         bullets: [
