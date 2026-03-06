@@ -721,7 +721,7 @@ export default function PortfolioBaseLayout() {
                       </p>
 
                       <p className="text-base leading-relaxed text-zinc-700">
-                        Tenho interesse em continuar evoluindo na área de tecnologia explorando soluções em dados, desenvolvimento e cloud.
+                        Tenho interesse em continuar evoluindo na área de tecnologia explorando soluções em <strong> dados, desenvolvimento e cloud</strong>.
                         Meu objetivo é me desenvolver continuamente e contribuir com soluções que gerem impacto real para o time e para o negócio.
                       </p>
                     </div>
