@@ -195,11 +195,12 @@ function AboutHero({ theme, onGoItau, onGoAbout }) {
         >
           Amanda Geovanna
         </h1>
+        /*
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-zinc-700 sm:text-lg">
           estou em busca de me tornar{" "}
           <span className="font-extrabold text-zinc-900">Engenheira de Dados</span>.
         </p>
-
+*/
         <p className="mt-6 max-w-2xl text-sm leading-relaxed text-zinc-700 sm:text-base">
           Bem-vindo ao meu portfólio. Aqui você pode conhecer minha trajetória,
           projetos acadêmicos e experiências na área de dados. Use o menu lateral
@@ -720,9 +721,8 @@ export default function PortfolioBaseLayout() {
                       </p>
 
                       <p className="text-base leading-relaxed text-zinc-700">
-                        Tenho interesse em continuar evoluindo em{" "}
-                        <strong>engenharia de dados na nuvem</strong> e no uso
-                        de <strong>dados</strong> para apoiar decisões.
+                        Tenho interesse em continuar evoluindo na área de tecnologia explorando soluções em dados, desenvolvimento e cloud.
+                        Meu objetivo é me desenvolver continuamente e contribuir com soluções que gerem impacto real para o time e para o negócio.
                       </p>
                     </div>
 
