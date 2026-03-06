@@ -196,11 +196,7 @@ function AboutHero({ theme, onGoItau, onGoAbout }) {
           Amanda Geovanna
         </h1>
         
-        <p className="mt-4 max-w-2xl text-base leading-relaxed text-zinc-700 sm:text-lg">
-          
-          <span className="font-extrabold text-zinc-900"></span>.
-        </p>
-       *
+      
         <p className="mt-6 max-w-2xl text-sm leading-relaxed text-zinc-700 sm:text-base">
           Bem-vindo ao meu portfólio. Aqui você pode conhecer minha trajetória,
           projetos acadêmicos e experiências na área de dados. Use o menu lateral
