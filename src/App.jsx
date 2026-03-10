@@ -156,9 +156,9 @@ function ExperienceCard({ xp, theme }) {
             <div className="text-sm text-zinc-700">{xp.cargo}</div>
 
             {xp.descricao && (
-              <div className="mt-2 text-xs leading-relaxed text-zinc-600">
-                {xp.descricao}
-              </div>
+                <div className="mt-2 text-sm text-zinc-600 leading-relaxed">
+            {xp.descricao}
+          </div>
             )}
           </div>
         </div>
@@ -310,10 +310,148 @@ function Badge({ href, src, alt }) {
   );
 })();
 
+function ImageModal({ images = [], selectedIndex = 0, onClose, onSelect }) {
+  if (!images.length) return null;
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-4"
+      onClick={onClose}
+    >
+      <div
+        className="relative w-full max-w-5xl rounded-3xl bg-white p-4 shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          className="absolute right-4 top-4 rounded-full border bg-white px-3 py-1 text-sm font-semibold text-zinc-700 transition hover:bg-zinc-50"
+        >
+          Fechar
+        </button>
+
+        <div className="overflow-hidden rounded-2xl bg-zinc-100">
+          <img
+            src={images[selectedIndex]}
+            alt={`Preview ${selectedIndex + 1}`}
+            className="max-h-[70vh] w-full object-contain"
+          />
+        </div>
+
+        {images.length > 1 && (
+          <div className="mt-4 flex flex-wrap gap-3">
+            {images.map((img, index) => (
+              <button
+                key={img}
+                onClick={() => onSelect(index)}
+                className={`overflow-hidden rounded-xl border transition ${
+                  index === selectedIndex
+                    ? "border-zinc-900 ring-2 ring-zinc-300"
+                    : "border-zinc-200"
+                }`}
+              >
+                <img
+                  src={img}
+                  alt={`Miniatura ${index + 1}`}
+                  className="h-20 w-28 object-cover"
+                />
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function FacultyProjectCard({ project, onOpenImage, theme, reverse = false }) {
+  return (
+    <div className="overflow-hidden rounded-[28px] border bg-white/70 p-5 shadow-sm md:p-7">
+      <div
+        className={`grid grid-cols-1 items-start gap-6 lg:grid-cols-2 ${
+          reverse ? "lg:[&>*:first-child]:order-2 lg:[&>*:last-child]:order-1" : ""
+        }`}
+      >
+        <div className="space-y-4 text-left">
+          <div className="flex flex-wrap items-center gap-3">
+            <span
+              className="rounded-full px-3 py-1 text-xs font-semibold"
+              style={{ background: theme.accentSoft, color: "#111827" }}
+            >
+              {project.semestre}
+            </span>
+
+            {project.link ? (
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-semibold"
+                style={{ color: "var(--accent)" }}
+              >
+                {project.linkLabel || "Ver projeto"}
+              </a>
+            ) : null}
+          </div>
+
+          <div>
+            <h3 className="text-2xl font-extrabold text-zinc-900">
+              {project.title}
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-zinc-700">
+              {project.description}
+            </p>
+          </div>
+
+          {project.highlights?.length ? (
+            <div className="space-y-2">
+              <div className="text-sm font-bold text-zinc-900">
+                Destaques do projeto
+              </div>
+              <ul className="list-disc space-y-1 pl-5 text-sm text-zinc-700">
+                {project.highlights.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+        </div>
+
+        <div className="space-y-3">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            {project.images.map((img, index) => (
+              <button
+                key={img}
+                type="button"
+                onClick={() => onOpenImage(project.images, index)}
+                className="group overflow-hidden rounded-2xl border bg-white"
+              >
+                <div className="aspect-[16/10] overflow-hidden">
+                  <img
+                    src={img}
+                    alt={`${project.title} ${index + 1}`}
+                    className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+              </button>
+            ))}
+          </div>
+
+          <div className="text-xs text-zinc-500">
+            Clique nas imagens para ampliar
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function PortfolioBaseLayout() {
   const [active, setActive] = useState("home");
   const [academicoTab, setAcademicoTab] = useState("dados");
   const [themeMode, setThemeMode] = useState("rose");
+  const [modalImages, setModalImages] = useState([]);
+  const [modalIndex, setModalIndex] = useState(0);
 
   useEffect(() => {
     try {
@@ -331,6 +469,11 @@ export default function PortfolioBaseLayout() {
       // ignore
     }
   }, [themeMode]);
+
+  const openProjectImageModal = (images, index = 0) => {
+  setModalImages(images);
+  setModalIndex(index);
+  };
 
   const theme = useMemo(() => {
     if (themeMode === "itau") {
@@ -368,6 +511,64 @@ export default function PortfolioBaseLayout() {
     ),
     [theme.accent]
   );
+
+  const faculdadeProjects = useMemo(
+  () => [
+    {
+      title: "bridee.",
+      semestre: "3º e 4º semestre",
+      description:
+        "Plataforma para organização de casamentos que conecta noivas e assessores. O projeto buscava centralizar a jornada de planejamento em um só lugar, com gestão financeira, checklist, catálogo de fornecedores e experiência mais personalizada para os usuários.",
+      highlights: [
+        "Foco em organização completa do casamento em uma única plataforma.",
+        "Conexão entre noivas, assessores e fornecedores.",
+        "Projeto pensado com visão de produto e experiência do usuário.",
+      ],
+      link: "https://github.com/Bridee-Solutions",
+      linkLabel: "Ver no GitHub",
+      images: [
+        "https://aceitosim.com.br/wp-content/uploads/2018/08/casamento-a-tarde-01.jpg",
+        "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1200&q=80",
+      ],
+    },
+    {
+      title: "CareTech",
+      semestre: "2º semestre",
+      description:
+        "Sistema em Java para monitoramento de estações de trabalho em call centers hospitalares, acompanhando indicadores como CPU, memória e disco para apoiar o controle operacional e a estabilidade das máquinas.",
+      highlights: [
+        "Monitoramento de recursos da máquina em ambiente hospitalar.",
+        "Aplicação de conceitos de ITIL e organização do fluxo de suporte.",
+        "Projeto com foco em desempenho e acompanhamento técnico.",
+      ],
+      link: "https://github.com/CareTech0/aplicacao-web",
+      linkLabel: "Ver no GitHub",
+      images: [
+        "https://www.csacademy.com.br/wp-content/uploads/2024/07/Call-center.webp",
+        "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=80",
+      ],
+    },
+    {
+      title: "WineTech",
+      semestre: "1º semestre",
+      description:
+        "Projeto IoT para monitoramento de adegas com sensores DHT-11 e Arduino, acompanhando temperatura e umidade para manter condições ideais de armazenamento e preservar a qualidade dos vinhos.",
+      highlights: [
+        "Uso de sensores para captura de dados ambientais.",
+        "Projeto com Arduino e lógica de monitoramento.",
+        "Aplicação prática de tecnologia em um cenário físico real.",
+      ],
+      images: [
+        "https://i0.wp.com/reserva85.com.br/wp-content/uploads/2020/10/V%C3%ADnicola-onde-se-faz-o-vinho.jpg?fit=1119%2C780&ssl=1",
+        "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=1200&q=80",
+      ],
+    },
+  ],
+  []
+);
 
   const educationItems = useMemo(
     () => [     
@@ -1028,35 +1229,33 @@ export default function PortfolioBaseLayout() {
                   <div className="space-y-8">
                     <p className="mx-auto max-w-3xl text-center text-sm text-zinc-600">
                       Projetos desenvolvidos durante a graduação em Análise e
-                      Desenvolvimento de Sistemas, utilizando práticas de
-                      metodologias ágeis, como sprints e dailies. A proposta da
-                      faculdade era aproximar os alunos da dinâmica real do
-                      mercado de tecnologia desde o início da formação.
+                      Desenvolvimento de Sistemas, utilizando práticas de metodologias
+                      ágeis, como sprints e dailies. A proposta da faculdade era aproximar
+                      os alunos da dinâmica real do mercado de tecnologia desde o início da
+                      formação.
                     </p>
 
-                    <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                      <ProjectCard
-                        image="https://aceitosim.com.br/wp-content/uploads/2018/08/casamento-a-tarde-01.jpg"
-                        title="bridee. - 3º e 4º Semestre"
-                        description="Plataforma para organização de casamentos que conecta noivas e assessores, com gestão financeira, lista de tarefas, convites personalizados e catálogo de fornecedores."
-                        link="https://github.com/Bridee-Solutions"
-                        linkLabel="Saiba mais"
-                      />
-
-                      <ProjectCard
-                        image="https://www.csacademy.com.br/wp-content/uploads/2024/07/Call-center.webp"
-                        title="CareTech - 2º semestre"
-                        description="Sistema em Java para monitorar estações de trabalho em call centers hospitalares, acompanhando CPU, memória e disco, com apoio a práticas de ITIL."
-                        link="https://github.com/CareTech0/aplicacao-web"
-                        linkLabel="Saiba mais"
-                      />
-
-                      <ProjectCard
-                        image="https://i0.wp.com/reserva85.com.br/wp-content/uploads/2020/10/V%C3%ADnicola-onde-se-faz-o-vinho.jpg?fit=1119%2C780&ssl=1"
-                        title="WineTech - 1º semestre"
-                        description="Projeto IoT para monitoramento de adegas com sensores DHT-11 e Arduino, acompanhando temperatura e umidade para manter condições ideais."
-                      />
+                    <div className="space-y-6">
+                      {faculdadeProjects.map((project, index) => (
+                        <FacultyProjectCard
+                          key={project.title}
+                          project={project}
+                          theme={theme}
+                          reverse={index % 2 !== 0}
+                          onOpenImage={openProjectImageModal}
+                        />
+                      ))}
                     </div>
+
+                    <ImageModal
+                      images={modalImages}
+                      selectedIndex={modalIndex}
+                      onSelect={setModalIndex}
+                      onClose={() => {
+                        setModalImages([]);
+                        setModalIndex(0);
+                      }}
+                    />
                   </div>
                 )}
               </div>
