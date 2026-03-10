@@ -730,7 +730,7 @@ export default function PortfolioBaseLayout() {
           <img
             src="/logoamanda.png"
             alt="Amanda G."
-            className="h-36 w-auto object-contain"
+            className="h-40 w-auto object-contain"
           />
 
           <nav className="flex flex-1 flex-col gap-2">
