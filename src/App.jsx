@@ -727,11 +727,11 @@ export default function PortfolioBaseLayout() {
           className="hidden w-[280px] flex-col px-8 py-10 sm:flex"
           style={{ background: theme.sidebar }}
         >
-          <div className="mb-10">
-            <div className="text-3xl font-extrabold tracking-tight">
-              {brand}
-            </div>
-          </div>
+          <img
+            src="/logo-amanda.svg"
+            alt="Amanda G."
+            className="h-12 w-auto"
+          />
 
           <nav className="flex flex-1 flex-col gap-2">
             {NAV.map((item) => {
@@ -808,35 +808,36 @@ export default function PortfolioBaseLayout() {
         </aside>
 
         {/* CONTENT */}
-        <main className="flex-1 p-5 sm:p-10">
-          <div
-            className="rounded-[28px] border p-6 shadow-sm sm:p-10"
-            style={{ background: theme.panel, borderColor: "rgba(0,0,0,.08)" }}
+        <div className="mb-6 flex items-center justify-between gap-3 sm:hidden">
+          <img
+            src="/logo-amanda.svg"
+            alt="Amanda G."
+            className="h-10 w-auto"
+          />
+
+          <button
+            type="button"
+            onClick={() =>
+              setThemeMode((m) => (m === "itau" ? "rose" : "itau"))
+            }
+            className="rounded-xl border bg-white/70 px-3 py-2 text-xs font-semibold text-zinc-900"
+            style={{ borderColor: "rgba(0,0,0,.10)" }}
           >
-            <div className="mb-6 flex items-center justify-between gap-3 sm:hidden">
-              <div className="text-lg font-extrabold">{brand}</div>
-              <button
-                type="button"
-                onClick={() =>
-                  setThemeMode((m) => (m === "itau" ? "rose" : "itau"))
-                }
-                className="rounded-xl border bg-white/70 px-3 py-2 text-xs font-semibold text-zinc-900"
-                style={{ borderColor: "rgba(0,0,0,.10)" }}
-              >
-                {themeMode === "itau" ? "Tema rosa" : "Tema Itaú"}
-              </button>
-              <select
-                value={active}
-                onChange={(e) => setActive(e.target.value)}
-                className="rounded-xl border bg-white/70 px-3 py-2 text-sm"
-              >
-                {NAV.map((n) => (
-                  <option key={n.id} value={n.id}>
-                    {n.label}
-                  </option>
-                ))}
-              </select>
-            </div>
+            {themeMode === "itau" ? "Tema rosa" : "Tema Itaú"}
+          </button>
+
+          <select
+            value={active}
+            onChange={(e) => setActive(e.target.value)}
+            className="rounded-xl border bg-white/70 px-3 py-2 text-sm"
+          >
+            {NAV.map((n) => (
+              <option key={n.id} value={n.id}>
+                {n.label}
+              </option>
+            ))}
+          </select>
+        </div>
 
             {/* HOME */}
             {active === "home" && (
