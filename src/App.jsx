@@ -528,7 +528,7 @@ export default function PortfolioBaseLayout() {
       linkLabel: "Ver protótipo no Figma",
       images: [
         "/snapshots/bridee1.png",
-        "/snapshots/bridee2.png",
+        "/snapshots/bridee6.png",
         "/snapshots/bridee3.png",
         "/snapshots/bridee4.png",
         "/snapshots/bridee5.png",
