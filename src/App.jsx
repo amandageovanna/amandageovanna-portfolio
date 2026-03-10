@@ -808,6 +808,7 @@ export default function PortfolioBaseLayout() {
         </aside>
 
         {/* CONTENT */}
+        <main className="flex-1 px-4 py-6 sm:px-8 sm:py-10">
         <div className="mb-6 flex items-center justify-between gap-3 sm:hidden">
           <img
             src="/logo-amanda.svg"
@@ -1393,7 +1394,6 @@ export default function PortfolioBaseLayout() {
                 </div>
               </div>
             )}
-          </div>
         </main>
       </div>
     </div>
