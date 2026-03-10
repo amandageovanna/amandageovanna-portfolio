@@ -580,10 +580,12 @@ export default function PortfolioBaseLayout() {
         "Aplicação prática de tecnologia em um cenário físico real.",
       ],
       images: [
-        "https://i0.wp.com/reserva85.com.br/wp-content/uploads/2020/10/V%C3%ADnicola-onde-se-faz-o-vinho.jpg?fit=1119%2C780&ssl=1",
-        "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=1200&q=80",
-      ],
+        "/snapshots/winetech1.png",
+
+        "https://media.licdn.com/dms/image/v2/D4D22AQE0MAFQKG13RA/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1702522230854?e=1774483200&v=beta&t=Brr1MbXTWIB2tMLE6JJeE0k9633z2dDb64rWT3Rkgiw",
+
+        "https://i0.wp.com/reserva85.com.br/wp-content/uploads/2020/10/V%C3%ADnicola-onde-se-faz-o-vinho.jpg?fit=1119%2C780&ssl=1"
+      ]
     },
   ],
   []
