@@ -154,6 +154,12 @@ function ExperienceCard({ xp, theme }) {
           <div>
             <div className="font-semibold text-zinc-900">{xp.empresa}</div>
             <div className="text-sm text-zinc-700">{xp.cargo}</div>
+
+            {xp.descricao && (
+              <div className="mt-2 text-xs leading-relaxed text-zinc-600">
+                {xp.descricao}
+              </div>
+            )}
           </div>
         </div>
 
@@ -403,6 +409,8 @@ export default function PortfolioBaseLayout() {
         empresa: "Estagiária Salesforce",
         cargo: "Elera",
         periodo: "2024-2025",
+        descricao:
+          "Desenvolvimento com Lightning Web Components (LWC), testes estruturados em Gherkin e documentação de histórias de usuário e critérios de aceite.",
         logo:
           "https://media.licdn.com/dms/image/v2/D4D0BAQF38uJRF4pfog/company-logo_200_200/company-logo_200_200/0/1704829713759/ercic_logo?e=2147483647&v=beta&t=MmO5Gi00iSBrHnTzL4r9gfULxwF5txRMiED6Ot5-iEA",
       },
@@ -693,7 +701,7 @@ export default function PortfolioBaseLayout() {
 
                     <div className="space-y-4">
                       <p className="text-base leading-relaxed text-zinc-700">
-                        Oi! Eu sou a Amanda e estou construindo minha jornada em{" "}
+                        Oi! Eu sou a Amanda e estou atualmente construindo minha jornada em{" "}
                         <strong>Engenharia de Dados</strong>. No{" "}
                         <strong>Itaú</strong>, atuo na comunidade{" "}
                         <strong>Esteira Única de Investimentos</strong>, dentro
