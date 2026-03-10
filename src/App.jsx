@@ -51,7 +51,6 @@ function TechPillGroup({ items = [] }) {
   );
 }
 
-
 function SkillBar({ label, value }) {
   return (
     <div className="space-y-2">
@@ -91,7 +90,9 @@ function ProjectCard({ image, title, description, link, linkLabel }) {
       </div>
       <div className="p-5">
         <div className="text-sm font-extrabold text-zinc-900">{title}</div>
-        <div className="mt-2 text-sm leading-relaxed text-zinc-700">{description}</div>
+        <div className="mt-2 text-sm leading-relaxed text-zinc-700">
+          {description}
+        </div>
         {link ? (
           <a
             href={link}
@@ -156,9 +157,9 @@ function ExperienceCard({ xp, theme }) {
             <div className="text-sm text-zinc-700">{xp.cargo}</div>
 
             {xp.descricao && (
-                <div className="mt-2 text-sm text-zinc-600 leading-relaxed">
-            {xp.descricao}
-          </div>
+              <div className="mt-2 text-sm text-zinc-600 leading-relaxed">
+                {xp.descricao}
+              </div>
             )}
           </div>
         </div>
@@ -201,12 +202,11 @@ function AboutHero({ theme, onGoItau, onGoAbout }) {
         >
           Amanda Geovanna
         </h1>
-        
-      
+
         <p className="mt-6 max-w-2xl text-sm leading-relaxed text-zinc-700 sm:text-base">
           Bem-vindo ao meu portfólio. Aqui você pode conhecer minha trajetória,
-          projetos acadêmicos e experiências na área de dados. Use o menu lateral
-          ou os botões abaixo para navegar.
+          projetos acadêmicos e experiências na área de dados. Use o menu
+          lateral ou os botões abaixo para navegar.
         </p>
 
         <div className="mt-6 flex flex-wrap justify-center gap-3">
@@ -237,10 +237,12 @@ function TimelineItem({ item }) {
         className="absolute left-0 top-1 h-4 w-4 rounded-full"
         style={{ background: "var(--accent)" }}
       />
-      
+
       <div className="text-lg font-extrabold text-zinc-900">{item.title}</div>
       {item.subtitle ? (
-        <div className="mt-2 text-sm font-semibold text-zinc-800">{item.subtitle}</div>
+        <div className="mt-2 text-sm font-semibold text-zinc-800">
+          {item.subtitle}
+        </div>
       ) : null}
       {item.bullets?.length ? (
         <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-700">
@@ -280,33 +282,48 @@ function Badge({ href, src, alt }) {
   const unique = new Set(ids);
 
   // eslint-disable-next-line no-console
-  console.assert(unique.size === ids.length, "[Portfolio] NAV possui ids duplicados");
+  console.assert(
+    unique.size === ids.length,
+    "[Portfolio] NAV possui ids duplicados",
+  );
 
   // eslint-disable-next-line no-console
   console.assert(
     NAV.some((n) => n.id === "itau"),
-    "[Portfolio] NAV deveria conter a rota 'itau'"
+    "[Portfolio] NAV deveria conter a rota 'itau'",
   );
 
   // eslint-disable-next-line no-console
-  console.assert(typeof ProjectCard === "function", "[Portfolio] ProjectCard deveria ser uma função");
+  console.assert(
+    typeof ProjectCard === "function",
+    "[Portfolio] ProjectCard deveria ser uma função",
+  );
 
   // eslint-disable-next-line no-console
-  console.assert(typeof Badge === "function", "[Portfolio] Badge deveria ser uma função");
+  console.assert(
+    typeof Badge === "function",
+    "[Portfolio] Badge deveria ser uma função",
+  );
 
   // Extra dev checks
   // eslint-disable-next-line no-console
-  console.assert(typeof SkillBar === "function", "[Portfolio] SkillBar deveria ser uma função");
+  console.assert(
+    typeof SkillBar === "function",
+    "[Portfolio] SkillBar deveria ser uma função",
+  );
   // eslint-disable-next-line no-console
-  console.assert(typeof TimelineItem === "function", "[Portfolio] TimelineItem deveria ser uma função");
+  console.assert(
+    typeof TimelineItem === "function",
+    "[Portfolio] TimelineItem deveria ser uma função",
+  );
 
   // Badge URLs sanity
   // eslint-disable-next-line no-console
   console.assert(
     "https://www.credly.com/badges/d0121974-6ef7-4e53-8b2c-085d01e0aaf6/linked_in_profile".includes(
-      "credly.com/badges/"
+      "credly.com/badges/",
     ),
-    "[Portfolio] Badge URL (Credly) deveria conter credly.com/badges"
+    "[Portfolio] Badge URL (Credly) deveria conter credly.com/badges",
   );
 })();
 
@@ -368,7 +385,9 @@ function FacultyProjectCard({ project, onOpenImage, theme, reverse = false }) {
     <div className="overflow-hidden rounded-[28px] border bg-white/70 p-5 shadow-sm md:p-7">
       <div
         className={`grid grid-cols-1 items-start gap-6 lg:grid-cols-2 ${
-          reverse ? "lg:[&>*:first-child]:order-2 lg:[&>*:last-child]:order-1" : ""
+          reverse
+            ? "lg:[&>*:first-child]:order-2 lg:[&>*:last-child]:order-1"
+            : ""
         }`}
       >
         <div className="space-y-4 text-left">
@@ -483,8 +502,8 @@ export default function PortfolioBaseLayout() {
   }, [themeMode]);
 
   const openProjectImageModal = (images, index = 0) => {
-  setModalImages(images);
-  setModalIndex(index);
+    setModalImages(images);
+    setModalIndex(index);
   };
 
   const theme = useMemo(() => {
@@ -521,101 +540,99 @@ export default function PortfolioBaseLayout() {
         <span style={{ color: theme.accent }}>.</span>
       </>
     ),
-    [theme.accent]
+    [theme.accent],
   );
 
   const faculdadeProjects = useMemo(
-  () => [
-    {
-      title: "bridee.",
-      semestre: "3º e 4º semestre",
-      description:
-        "Plataforma para organização de casamentos que conecta noivas e assessores. O projeto buscava centralizar a jornada de planejamento em um só lugar, com gestão financeira, checklist, catálogo de fornecedores e experiência personalizada.",
-      highlights: [      
-      "Gestão financeira do casamento com calculadora de orçamento",    
-      "Lista de tarefas personalizada com filtros para organização do evento",
-      "Catálogo de fornecedores conectando noivas a assessores e prestadores",
-      "Painel com visão geral do planejamento do casamento"
-      ],
-      figma: "https://www.figma.com/design/7aDrzFLyKVUI0c9rbtZ3qT/bridee.?node-id=64-2&p=f&t=nodPzeAl8nnxYig9-0",
-      repo: "https://github.com/Bridee-Solutions",
+    () => [
+      {
+        title: "bridee.",
+        semestre: "3º e 4º semestre",
+        description:
+          "Plataforma para organização de casamentos que conecta noivas e assessores. O projeto buscava centralizar a jornada de planejamento em um só lugar, com gestão financeira, checklist, catálogo de fornecedores e experiência personalizada.",
+        highlights: [
+          "Gestão financeira do casamento com calculadora de orçamento",
+          "Lista de tarefas personalizada com filtros para organização do evento",
+          "Catálogo de fornecedores conectando noivas a assessores e prestadores",
+          "Painel com visão geral do planejamento do casamento",
+        ],
+        figma:
+          "https://www.figma.com/design/7aDrzFLyKVUI0c9rbtZ3qT/bridee.?node-id=64-2&p=f&t=nodPzeAl8nnxYig9-0",
+        repo: "https://github.com/Bridee-Solutions",
 
-      images: [
-        "/snapshots/bridee1.png",
-        "/snapshots/bridee6.png",
-        "/snapshots/bridee3.png",
-        "/snapshots/bridee7.png",
-        "/snapshots/bridee5.png",
-      ],
-    },
-    {
-      title: "CareTech",
-      semestre: "2º semestre",
-      description:
-        "Sistema desenvolvido em Java para monitoramento de estações de trabalho em call centers hospitalares, acompanhando CPU, memória e disco para apoiar a estabilidade operacional e facilitar o acompanhamento técnico dos equipamentos.",
-      highlights: [
-        "Monitoramento de recursos da máquina (CPU, memória e disco)",
-        "Aplicação de conceitos de ITIL",
-        "Projeto voltado para contexto de call center hospitalar"
-      ],
-      repo: "https://github.com/CareTech0/aplicacao-web",
-      images: [
-        "/snapshots/caretech1.png",
-        "/snapshots/caretech2.png",
-        "/snapshots/caretech3.png",
-        "/snapshots/caretech4.png",
-        "/snapshots/caretech5.png",
-        "/snapshots/caretech6.png"
-      ]
-    },
-    {
-      title: "WineTech",
-      semestre: "1º semestre",
-      description:
-        "Projeto IoT para monitoramento de adegas com sensores DHT-11 e Arduino, acompanhando temperatura e umidade para manter condições ideais de armazenamento e preservar a qualidade dos vinhos.",
-      highlights: [
-        "Uso de sensores para captura de dados ambientais.",
-        "Projeto com Arduino e lógica de monitoramento.",
-        "Aplicação prática de tecnologia em um cenário físico real.",
-      ],
-      images: [
-        "/snapshots/winetech1.png",
+        images: [
+          "/snapshots/bridee1.png",
+          "/snapshots/bridee6.png",
+          "/snapshots/bridee3.png",
+          "/snapshots/bridee7.png",
+          "/snapshots/bridee5.png",
+        ],
+      },
+      {
+        title: "CareTech",
+        semestre: "2º semestre",
+        description:
+          "Sistema desenvolvido em Java para monitoramento de estações de trabalho em call centers hospitalares, acompanhando CPU, memória e disco para apoiar a estabilidade operacional e facilitar o acompanhamento técnico dos equipamentos.",
+        highlights: [
+          "Monitoramento de recursos da máquina (CPU, memória e disco)",
+          "Aplicação de conceitos de ITIL",
+          "Projeto voltado para contexto de call center hospitalar",
+        ],
+        repo: "https://github.com/CareTech0/aplicacao-web",
+        images: [
+          "/snapshots/caretech1.png",
+          "/snapshots/caretech2.png",
+          "/snapshots/caretech3.png",
+          "/snapshots/caretech4.png",
+          "/snapshots/caretech5.png",
+          "/snapshots/caretech6.png",
+        ],
+      },
+      {
+        title: "WineTech",
+        semestre: "1º semestre",
+        description:
+          "Projeto IoT para monitoramento de adegas com sensores DHT-11 e Arduino, acompanhando temperatura e umidade para manter condições ideais de armazenamento e preservar a qualidade dos vinhos.",
+        highlights: [
+          "Uso de sensores para captura de dados ambientais.",
+          "Projeto com Arduino e lógica de monitoramento.",
+          "Aplicação prática de tecnologia em um cenário físico real.",
+        ],
+        images: [
+          "/snapshots/winetech1.png",
 
-        "https://media.licdn.com/dms/image/v2/D4D22AQE0MAFQKG13RA/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1702522230854?e=1774483200&v=beta&t=Brr1MbXTWIB2tMLE6JJeE0k9633z2dDb64rWT3Rkgiw",
+          "https://media.licdn.com/dms/image/v2/D4D22AQE0MAFQKG13RA/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1702522230854?e=1774483200&v=beta&t=Brr1MbXTWIB2tMLE6JJeE0k9633z2dDb64rWT3Rkgiw",
 
-        "https://i0.wp.com/reserva85.com.br/wp-content/uploads/2020/10/V%C3%ADnicola-onde-se-faz-o-vinho.jpg?fit=1119%2C780&ssl=1",
-        "/snapshots/winetech3.png"
-      ]
-    },
-  ],
-  []
-);
+          "https://i0.wp.com/reserva85.com.br/wp-content/uploads/2020/10/V%C3%ADnicola-onde-se-faz-o-vinho.jpg?fit=1119%2C780&ssl=1",
+          "/snapshots/winetech3.png",
+        ],
+      },
+    ],
+    [],
+  );
 
   const educationItems = useMemo(
-    () => [     
+    () => [
       {
         curso: "SIS — Impacta Tecnologia",
-        logo:
-          "https://media.licdn.com/dms/image/v2/C4D0BAQEG8qandFQNjw/company-logo_200_200/company-logo_200_200/0/1630550349647/impacta_tecnologia_logo?e=1773878400&v=beta&t=pBbNqG1bPEK81tbnRrv-OHdTc7mYXqFpCDBtej6lfGY",
+        logo: "https://media.licdn.com/dms/image/v2/C4D0BAQEG8qandFQNjw/company-logo_200_200/company-logo_200_200/0/1630550349647/impacta_tecnologia_logo?e=1773878400&v=beta&t=pBbNqG1bPEK81tbnRrv-OHdTc7mYXqFpCDBtej6lfGY",
         detalhe: "Bacharelado em Sistemas de Informação",
         periodo: "2025–2028",
       },
       {
         curso: "ADS — SPTech",
-        logo:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaC1HUrJ7tn8-Kthf32n0ooqS8Ls5xxB3i4A&s",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaC1HUrJ7tn8-Kthf32n0ooqS8Ls5xxB3i4A&s",
         detalhe: "Tecnólogo em Análise e Desenvolvimento de Sistemas",
         periodo: "2023–2025",
       },
       {
         curso: "Enfermagem — UNIP",
-        logo:
-          "https://media.licdn.com/dms/image/v2/D4D0BAQHBvbGquYuc4w/company-logo_100_100/company-logo_100_100/0/1725888891748?e=1773878400&v=beta&t=ytWWb8zAVid2pFW0qWO7pIGjXw0TcEtIceZVKMqQDVU",
+        logo: "https://media.licdn.com/dms/image/v2/D4D0BAQHBvbGquYuc4w/company-logo_100_100/company-logo_100_100/0/1725888891748?e=1773878400&v=beta&t=ytWWb8zAVid2pFW0qWO7pIGjXw0TcEtIceZVKMqQDVU",
         detalhe: "Graduação — Incompleta",
         periodo: "2020–2022",
       },
     ],
-    []
+    [],
   );
 
   const experienceItems = useMemo(
@@ -624,8 +641,7 @@ export default function PortfolioBaseLayout() {
         empresa: "Estagiária Eng. de Dados",
         cargo: "Itaú",
         periodo: "2025 - Atual",
-        logo:
-          "https://media.licdn.com/dms/image/v2/D4D0BAQGmyPiGIU-69w/company-logo_200_200/B4DZZFc2k4GgAI-/0/1744921914031/itau_logo?e=1773878400&v=beta&t=azgxleKyTLaic1d3U6qkCfd8VwySvELiFpNAjyGe_7g",
+        logo: "https://media.licdn.com/dms/image/v2/D4D0BAQGmyPiGIU-69w/company-logo_200_200/B4DZZFc2k4GgAI-/0/1744921914031/itau_logo?e=1773878400&v=beta&t=azgxleKyTLaic1d3U6qkCfd8VwySvELiFpNAjyGe_7g",
       },
       {
         empresa: "Estagiária Salesforce",
@@ -633,25 +649,22 @@ export default function PortfolioBaseLayout() {
         periodo: "2024-2025",
         descricao:
           "Desenvolvimento com Lightning Web Components (LWC), testes estruturados em Gherkin e documentação de histórias de usuário e critérios de aceite.",
-        logo:
-          "https://media.licdn.com/dms/image/v2/D4D0BAQF38uJRF4pfog/company-logo_200_200/company-logo_200_200/0/1704829713759/ercic_logo?e=2147483647&v=beta&t=MmO5Gi00iSBrHnTzL4r9gfULxwF5txRMiED6Ot5-iEA",
+        logo: "https://media.licdn.com/dms/image/v2/D4D0BAQF38uJRF4pfog/company-logo_200_200/company-logo_200_200/0/1704829713759/ercic_logo?e=2147483647&v=beta&t=MmO5Gi00iSBrHnTzL4r9gfULxwF5txRMiED6Ot5-iEA",
       },
       {
         empresa: "Operadora de Atendimento",
         cargo: "Hospital BP",
         periodo: "2021-2023",
-        logo:
-          "https://media.licdn.com/dms/image/v2/C4E0BAQHyz7zwGnYusg/company-logo_200_200/company-logo_200_200/0/1631342193186?e=1773878400&v=beta&t=6z-PFclaXzRKc6E4m1cqB7VrKEAaIvCDIh0I_s5y6go",
+        logo: "https://media.licdn.com/dms/image/v2/C4E0BAQHyz7zwGnYusg/company-logo_200_200/company-logo_200_200/0/1631342193186?e=1773878400&v=beta&t=6z-PFclaXzRKc6E4m1cqB7VrKEAaIvCDIh0I_s5y6go",
       },
       {
         empresa: "Aprendiz",
         cargo: "Hospital Rede D'Or",
         periodo: "2019-2020",
-        logo:
-          "https://media.licdn.com/dms/image/v2/D4D0BAQHN4dv08rV5TA/company-logo_100_100/B4DZpJGxNBH0AQ-/0/1762163103503/rededor_logo?e=1773878400&v=beta&t=HTDOgNmJ30JDoNoYNV7pMLzmQ9roYz_KLt4B2Y1gUGc",
+        logo: "https://media.licdn.com/dms/image/v2/D4D0BAQHN4dv08rV5TA/company-logo_100_100/B4DZpJGxNBH0AQ-/0/1762163103503/rededor_logo?e=1773878400&v=beta&t=HTDOgNmJ30JDoNoYNV7pMLzmQ9roYz_KLt4B2Y1gUGc",
       },
     ],
-    []
+    [],
   );
 
   const itauTimeline = useMemo(
@@ -676,7 +689,7 @@ export default function PortfolioBaseLayout() {
           "Integração com Datadog para observabilidade e acompanhamento de execução.",
         ],
       },
-      {        
+      {
         title: "Ingestão e estruturação de dados (PEP)",
         subtitle: "Implementação de ingestão de dados de posição e movimento",
         bullets: [
@@ -696,7 +709,7 @@ export default function PortfolioBaseLayout() {
           "Ajustes em processos de qualidade para reduzir inconsistências nos dados.",
         ],
       },
-      {        
+      {
         title: "Otimização de performance",
         subtitle: "Iniciativa de melhoria de performance e custo",
         bullets: [
@@ -706,11 +719,14 @@ export default function PortfolioBaseLayout() {
         ],
       },
     ],
-    []
+    [],
   );
 
   // eslint-disable-next-line no-console
-  console.assert(itauTimeline.length > 0, "[Portfolio] Timeline do Itaú não deveria estar vazia");
+  console.assert(
+    itauTimeline.length > 0,
+    "[Portfolio] Timeline do Itaú não deveria estar vazia",
+  );
 
   return (
     <div
@@ -809,591 +825,589 @@ export default function PortfolioBaseLayout() {
 
         {/* CONTENT */}
         <main className="flex-1 px-4 py-6 sm:px-8 sm:py-10">
-        <div className="mb-6 flex items-center justify-between gap-3 sm:hidden">
-          <img
-            src="/logo-amanda.svg"
-            alt="Amanda G."
-            className="h-10 w-auto"
-          />
+          <div className="mb-6 flex items-center justify-between gap-3 sm:hidden">
+            <img
+              src="/logo-amanda.svg"
+              alt="Amanda G."
+              className="h-10 w-auto"
+            />
 
-          <button
-            type="button"
-            onClick={() =>
-              setThemeMode((m) => (m === "itau" ? "rose" : "itau"))
-            }
-            className="rounded-xl border bg-white/70 px-3 py-2 text-xs font-semibold text-zinc-900"
-            style={{ borderColor: "rgba(0,0,0,.10)" }}
-          >
-            {themeMode === "itau" ? "Tema rosa" : "Tema Itaú"}
-          </button>
+            <button
+              type="button"
+              onClick={() =>
+                setThemeMode((m) => (m === "itau" ? "rose" : "itau"))
+              }
+              className="rounded-xl border bg-white/70 px-3 py-2 text-xs font-semibold text-zinc-900"
+              style={{ borderColor: "rgba(0,0,0,.10)" }}
+            >
+              {themeMode === "itau" ? "Tema rosa" : "Tema Itaú"}
+            </button>
 
-          <select
-            value={active}
-            onChange={(e) => setActive(e.target.value)}
-            className="rounded-xl border bg-white/70 px-3 py-2 text-sm"
-          >
-            {NAV.map((n) => (
-              <option key={n.id} value={n.id}>
-                {n.label}
-              </option>
-            ))}
-          </select>
-        </div>
+            <select
+              value={active}
+              onChange={(e) => setActive(e.target.value)}
+              className="rounded-xl border bg-white/70 px-3 py-2 text-sm"
+            >
+              {NAV.map((n) => (
+                <option key={n.id} value={n.id}>
+                  {n.label}
+                </option>
+              ))}
+            </select>
+          </div>
 
-            {/* HOME */}
-            {active === "home" && (
-              <div className="space-y-8">
-                <AboutHero
-                  theme={theme}
-                  onGoItau={() => setActive("itau")}
-                  onGoAbout={() => setActive("about")}
-                />
+          {/* HOME */}
+          {active === "home" && (
+            <div className="space-y-8">
+              <AboutHero
+                theme={theme}
+                onGoItau={() => setActive("itau")}
+                onGoAbout={() => setActive("about")}
+              />
+            </div>
+          )}
+
+          {/* ABOUT */}
+          {active === "about" && (
+            <div className="space-y-10">
+              <div className="text-center">
+                <h1
+                  className="text-2xl font-extrabold tracking-tight sm:text-3xl"
+                  style={{ color: "var(--accent)" }}
+                >
+                  Sobre mim
+                </h1>
               </div>
-            )}
 
-            {/* ABOUT */}
-            {active === "about" && (
-              <div className="space-y-10">
-                <div className="text-center">
-                  <h1
-                    className="text-2xl font-extrabold tracking-tight sm:text-3xl"
-                    style={{ color: "var(--accent)" }}
-                  >
-                    Sobre mim
-                  </h1>
-                </div>
-
-                <div className="grid grid-cols-1 items-start gap-6 lg:grid-cols-2">
-                  <div className="flex flex-col items-start gap-6">
-                    <div className="relative">
-                      <div className="absolute -left-3 -top-3 -z-10 h-[332px] w-[332px]">
-                        <div
-                          className="absolute left-0 top-0 h-full w-[14px]"
-                          style={{ background: theme.accent }}
-                        />
-                        <div
-                          className="absolute bottom-0 left-0 h-[14px] w-full"
-                          style={{ background: theme.accent }}
-                        />
-                      </div>
-
+              <div className="grid grid-cols-1 items-start gap-6 lg:grid-cols-2">
+                <div className="flex flex-col items-start gap-6">
+                  <div className="relative">
+                    <div className="absolute -left-3 -top-3 -z-10 h-[332px] w-[332px]">
                       <div
-                        className="overflow-hidden border bg-white"
-                        style={{ borderColor: "rgba(0,0,0,.18)" }}
-                      >
-                        <img
-                          src="https://media.licdn.com/dms/image/v2/D4D22AQHkeiYtNvpflg/feedshare-shrink_1280/B4DZlfMedtJMAs-/0/1758238733106?e=1773878400&v=beta&t=xxFUn9KsQekEpaVhIUaD0oLzGmLsBWG_Yw1piwg0o3Y"
-                          alt="Foto"
-                          className="h-[320px] w-[320px] object-cover"
-                          loading="lazy"
-                        />
-                      </div>
-
-                      <div className="mt-3 text-sm italic text-zinc-700">
-                        “Porque bom você se torna”.
-                      </div>
-                    </div>
-
-                    <div className="space-y-3">
-                      <div className="text-lg font-bold text-zinc-900">
-                        Meus Interesses
-                      </div>
-                      <div className="grid grid-cols-2 gap-4">
-                        <InterestItem icon={Book} label="Livros" />
-                        <InterestItem icon={Dumbbell} label="Se exercitar" />
-                        <InterestItem
-                          icon={Sparkles}
-                          label="Descobrir coisas novas"
-                        />
-                        <InterestItem icon={Puzzle} label="Quebra-cabeças" />
-                      </div>
-                    </div>
-
-                    <div className="w-full space-y-3">
-                      <div className="text-lg font-bold text-zinc-900">
-                        Soft Skills
-                      </div>
-
-                      <div className="grid w-full grid-cols-1 gap-3 sm:grid-cols-2">
-
-                        <div className="rounded-xl border bg-white/70 p-3 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-md">
-                          <div className="text-xl">💬</div>
-                          <div className="mt-1 text-sm font-semibold text-zinc-900">
-                            Comunicativa
-                          </div>
-                          <div className="mt-1 text-xs leading-relaxed text-zinc-600">
-                            Facilidade para trocar ideias, explicar pontos com clareza e colaborar com o time.
-                          </div>
-                        </div>
-
-                        <div className="rounded-xl border bg-white/70 p-3 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-md">
-                          <div className="text-xl">⚡</div>
-                          <div className="mt-1 text-sm font-semibold text-zinc-900">
-                            Desenrolada
-                          </div>
-                          <div className="mt-1 text-xs leading-relaxed text-zinc-600">
-                            Costumo me adaptar rápido e buscar soluções práticas para os desafios do dia a dia.
-                          </div>
-                        </div>
-
-                        <div className="rounded-xl border bg-white/70 p-3 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-md">
-                          <div className="text-xl">🌱</div>
-                          <div className="mt-1 text-sm font-semibold text-zinc-900">
-                            Curiosa
-                          </div>
-                          <div className="mt-1 text-xs leading-relaxed text-zinc-600">
-                            Gosto de aprender coisas novas e explorar diferentes ferramentas e tecnologias.
-                          </div>
-                        </div>
-
-                      </div>
-                    </div>
-
-                  </div>
-
-                  <div className="space-y-4 text-left">
-                    <div>
-                      <div className="text-xl font-extrabold text-zinc-900">
-                        Amanda Geovanna
-                      </div>
+                        className="absolute left-0 top-0 h-full w-[14px]"
+                        style={{ background: theme.accent }}
+                      />
                       <div
-                        className="mt-1 text-sm font-medium"
-                        style={{ color: theme.accent }}
-                      >
-                        Estagiária de Engenharia de Dados
-                      </div>
-                    </div>
-
-                    <div className="space-y-4">
-                      <p className="text-base leading-relaxed text-zinc-700">
-                        Oi! Eu sou a Amanda e estou atualmente construindo minha jornada em{" "}
-                        <strong>Engenharia de Dados</strong>. No{" "}
-                        <strong>Itaú</strong>, atuo na comunidade{" "}
-                        <strong>Esteira Única de Investimentos</strong>, dentro
-                        da <strong>Squad PosMov</strong>, trabalhando na
-                        modernização da jornada de dados de investimentos.
-                      </p>
-
-                      <p className="text-base leading-relaxed text-zinc-700">
-                        Durante o estágio, atuei em etapas do pipeline como{" "}
-                        <strong>ingestão</strong>,{" "}
-                        <strong>processamento</strong> e{" "}
-                        <strong>validação de dados</strong>, contribuindo para a
-                        qualidade das informações utilizadas pelo negócio.
-                      </p>
-
-                      <p className="text-base leading-relaxed text-zinc-700">
-                        No dia a dia, trabalho com <strong>AWS</strong> (Glue,
-                        Athena, S3, Lambda e CloudWatch), além de{" "}
-                        <strong>Python</strong>, <strong>PySpark</strong> e{" "}
-                        <strong>SQL</strong>.
-                      </p>
-
-                      <p className="text-base leading-relaxed text-zinc-700">
-                        Busco crescer na área de tecnologia explorando soluções em <strong> dados, desenvolvimento e cloud</strong>,
-                        e contribuindo com soluções que façam a diferença para o time e para o negócio.
-                      </p>
-                    </div>
-
-                    <div className="space-y-3 pt-2">
-                      <div className="flex flex-wrap justify-start gap-2">
-                        <a
-                          href="/Amanda_Baptista_CV.pdf"
-                          download
-                          className="rounded-xl px-4 py-2 text-xs font-semibold text-zinc-900 shadow-sm transition hover:opacity-90"
-                          style={{ background: theme.accent }}
-                        >
-                          Download CV
-                        </a>
-                        <a
-                          href="https://www.linkedin.com/in/amandageovanna/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="rounded-xl border bg-white/60 px-4 py-2 text-xs font-semibold text-zinc-900 transition hover:bg-white"
-                          style={{ borderColor: "rgba(0,0,0,.10)" }}
-                        >
-                          Fale comigo
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* RESUME */}
-            {active === "resume" && (
-              <div className="space-y-10 text-left">
-                <div className="space-y-2 text-center">
-                  <h1
-                    className="text-2xl font-extrabold tracking-tight sm:text-3xl"
-                    style={{ color: "var(--accent)" }}
-                  >
-                    Resumo Profissional
-                  </h1>
-                  <p className="mx-auto max-w-2xl text-xs leading-relaxed text-zinc-600 sm:text-sm">
-                    Uma visão resumida da minha formação e trajetória
-                    profissional.
-                  </p>
-                </div>
-
-                <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-                  <div className="space-y-5">
-                    <div className="flex items-center justify-start gap-2 text-lg font-extrabold text-zinc-900">
-                      <GraduationCap
-                        className="h-5 w-5"
-                        style={{ color: "var(--accent)" }}
+                        className="absolute bottom-0 left-0 h-[14px] w-full"
+                        style={{ background: theme.accent }}
                       />
-                      Educação
                     </div>
 
-                    <div className="space-y-4">
-                      {educationItems.map((item) => (
-                        <EducationCard
-                          key={item.curso}
-                          item={item}
-                          theme={theme}
-                        />
-                      ))}
+                    <div
+                      className="overflow-hidden border bg-white"
+                      style={{ borderColor: "rgba(0,0,0,.18)" }}
+                    >
+                      <img
+                        src="https://media.licdn.com/dms/image/v2/D4D22AQHkeiYtNvpflg/feedshare-shrink_1280/B4DZlfMedtJMAs-/0/1758238733106?e=1773878400&v=beta&t=xxFUn9KsQekEpaVhIUaD0oLzGmLsBWG_Yw1piwg0o3Y"
+                        alt="Foto"
+                        className="h-[320px] w-[320px] object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+
+                    <div className="mt-3 text-sm italic text-zinc-700">
+                      “Porque bom você se torna”.
                     </div>
                   </div>
 
-                  <div className="space-y-5">
-                    <div className="flex items-center justify-start gap-2 text-lg font-extrabold text-zinc-900">
-                      <Briefcase
-                        className="h-5 w-5"
-                        style={{ color: "var(--accent)" }}
-                      />
-                      Experiências
+                  <div className="space-y-3">
+                    <div className="text-lg font-bold text-zinc-900">
+                      Meus Interesses
                     </div>
-
-                    <div className="space-y-4">
-                      {experienceItems.map((xp) => (
-                        <ExperienceCard
-                          key={`${xp.empresa}-${xp.cargo}`}
-                          xp={xp}
-                          theme={theme}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-                  <div className="space-y-5">
-                    <div className="flex items-center gap-2 text-left text-lg font-extrabold text-zinc-900">
-                      <Code
-                        className="h-5 w-5"
-                        style={{ color: "var(--accent)" }}
+                    <div className="grid grid-cols-2 gap-4">
+                      <InterestItem icon={Book} label="Livros" />
+                      <InterestItem icon={Dumbbell} label="Se exercitar" />
+                      <InterestItem
+                        icon={Sparkles}
+                        label="Descobrir coisas novas"
                       />
-                      Skills (Dados)
-                    </div>
-
-                    <div className="max-w-xl rounded-2xl border bg-white/60 p-5 text-left shadow-sm">
-                      <TechPillGroup
-                        items={["Python", "SQL", "PySpark", "ETL", "Terraform"]}
-                      />
+                      <InterestItem icon={Puzzle} label="Quebra-cabeças" />
                     </div>
                   </div>
 
-                  <div className="space-y-5">
-                    <div className="flex items-center gap-2 text-left text-lg font-extrabold text-zinc-900">
-                      <Cloud
-                        className="h-5 w-5"
-                        style={{ color: "var(--accent)" }}
-                      />
-                      Cloud / Ferramentas
+                  <div className="w-full space-y-3">
+                    <div className="text-lg font-bold text-zinc-900">
+                      Soft Skills
                     </div>
 
-                    <div className="max-w-xl rounded-2xl border bg-white/60 p-5 text-left shadow-sm">
-                      <TechPillGroup
-                        items={[
-                          "AWS Glue",
-                          "S3",
-                          "Athena",
-                          "Lambda",
-                          "Step Functions",
-                          "CloudWatch",
-                          "Terraform",
-                          "ECS",
-                        ]}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* DEDICAÇÃO */}
-            {active === "dedicacao" && (
-              <div className="space-y-10">
-                <div className="space-y-2 text-center">
-                  <h1
-                    className="text-2xl font-extrabold tracking-tight sm:text-3xl"
-                    style={{ color: "var(--accent)" }}
-                  >
-                    Resumo Acadêmico
-                  </h1>
-                  <p className="mx-auto max-w-2xl text-xs leading-relaxed text-zinc-600 sm:text-sm">
-                    Estudos, projetos e experiências que fazem parte da minha
-                    formação.
-                  </p>
-                </div>
-
-                <div className="flex flex-wrap items-center justify-center gap-6 text-sm font-semibold">
-                  {[
-                    { id: "dados", label: "Dados" },
-                    { id: "faculdade", label: "Faculdade" },
-                  ].map((t) => {
-                    const isActiveTab = academicoTab === t.id;
-                    return (
-                      <button
-                        key={t.id}
-                        onClick={() => setAcademicoTab(t.id)}
-                        className="relative px-1 pb-2 transition"
-                        style={{
-                          color: isActiveTab ? theme.accent : "#3f3f46",
-                        }}
-                      >
-                        {t.label}
-                        {isActiveTab ? (
-                          <span
-                            className="absolute left-0 right-0 -bottom-[1px] mx-auto h-[2px] rounded-full"
-                            style={{ background: theme.accent }}
-                          />
-                        ) : null}
-                      </button>
-                    );
-                  })}
-                </div>
-
-                {academicoTab === "dados" && (
-                  <div className="space-y-10">
-                    <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-                      <div className="rounded-2xl border bg-white/60 p-6 shadow-sm">
-                        <div className="text-base font-extrabold text-zinc-900">
-                          Apache Spark
+                    <div className="grid w-full grid-cols-1 gap-3 sm:grid-cols-2">
+                      <div className="rounded-xl border bg-white/70 p-3 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+                        <div className="text-xl">💬</div>
+                        <div className="mt-1 text-sm font-semibold text-zinc-900">
+                          Comunicativa
                         </div>
-                        <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-zinc-700">
-                          <li>
-                            Configurei o Apache Spark e explorei DataFrames para
-                            manipulação de dados em Python.
-                          </li>
-                          <li>
-                            Trabalhei com dados do Cadastro de CNPJs da Receita
-                            Federal, realizando transformações, consultas e
-                            operações de limpeza.
-                          </li>
-                          <li>
-                            Utilizei Spark SQL e armazenei dados em formatos
-                            como CSV e Parquet.
-                          </li>
-                        </ul>
-                      </div>
-
-                      <div className="rounded-2xl border bg-white/60 p-6 shadow-sm">
-                        <div className="text-base font-extrabold text-zinc-900">
-                          Apache Airflow
+                        <div className="mt-1 text-xs leading-relaxed text-zinc-600">
+                          Facilidade para trocar ideias, explicar pontos com
+                          clareza e colaborar com o time.
                         </div>
-                        <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-zinc-700">
-                          <li>
-                            Criei e automatizei pipelines estruturando DAGs com
-                            tasks e operators.
-                          </li>
-                          <li>
-                            Desenvolvi um projeto para agendar um pipeline
-                            semanal de previsões meteorológicas.
-                          </li>
-                        </ul>
-                        <a
-                          href="https://github.com/amandageovanna/turismo-dados-pipeline"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="mt-4 inline-block text-sm font-semibold"
-                          style={{ color: "var(--accent)" }}
-                        >
-                          Ver repositório no GitHub
-                        </a>
                       </div>
 
-                      <div className="rounded-2xl border bg-white/60 p-6 shadow-sm">
-                        <div className="text-base font-extrabold text-zinc-900">
-                          Databricks
+                      <div className="rounded-xl border bg-white/70 p-3 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+                        <div className="text-xl">⚡</div>
+                        <div className="mt-1 text-sm font-semibold text-zinc-900">
+                          Desenrolada
                         </div>
-                        <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-zinc-700">
-                          <li>
-                            Configurei clusters e trabalhei com notebooks.
-                          </li>
-                          <li>
-                            Explorei Delta Lake, arquitetura Medallion e DLT.
-                          </li>
-                          <li>
-                            Utilizei Hive e SparkSQL para processamento de
-                            dados.
-                          </li>
-                        </ul>
-                      </div>
-
-                      <div className="rounded-2xl border bg-white/60 p-6 shadow-sm">
-                        <div className="text-base font-extrabold text-zinc-900">
-                          AWS Data Lake: Pipeline para Ingestão de Dados
+                        <div className="mt-1 text-xs leading-relaxed text-zinc-600">
+                          Costumo me adaptar rápido e buscar soluções práticas
+                          para os desafios do dia a dia.
                         </div>
-                        <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-zinc-700">
-                          <li>
-                            Implementei pipeline de ingestão de dados externos
-                            usando S3, IAM e Lake Formation.
-                          </li>
-                          <li>
-                            Utilizei Python e Boto3 para automação da ingestão.
-                          </li>
-                          <li>
-                            Monitorei custos e execução com CloudWatch e AWS
-                            Budgets.
-                          </li>
-                        </ul>
-                        <a
-                          href="https://github.com/amandageovanna/ingestao-dados-aws-pipeline/tree/main"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="mt-4 inline-block text-sm font-semibold"
-                          style={{ color: "var(--accent)" }}
-                        >
-                          Ver repositório no GitHub
-                        </a>
-                      </div>
-                    </div>
-
-                    <div className="space-y-6">
-                      <div className="text-center">
-                        <h2
-                          className="text-3xl font-extrabold"
-                          style={{ color: "var(--accent)" }}
-                        >
-                          Badges
-                        </h2>
                       </div>
 
-                      <div className="flex flex-wrap justify-center gap-6">
-                        <Badge
-                          href="https://credentials.databricks.com/02b24b55-e3e4-4be0-8d1b-d18212e99b47"
-                          src="https://www.databricks.com/sites/default/files/inline-images/fundamentals-badge-databricks-2x_1.png"
-                          alt="Databricks Fundamentals Badge"
-                        />
-                        <Badge
-                          href="https://www.credly.com/badges/ca2e8b00-b44c-4b27-973a-4f781925d5f4/linked_in_profile"
-                          src="https://images.credly.com/size/340x340/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png"
-                          alt="AWS Cloud Practitioner Badge"
-                        />
+                      <div className="rounded-xl border bg-white/70 p-3 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+                        <div className="text-xl">🌱</div>
+                        <div className="mt-1 text-sm font-semibold text-zinc-900">
+                          Curiosa
+                        </div>
+                        <div className="mt-1 text-xs leading-relaxed text-zinc-600">
+                          Gosto de aprender coisas novas e explorar diferentes
+                          ferramentas e tecnologias.
+                        </div>
                       </div>
                     </div>
                   </div>
-                )}
+                </div>
 
-                {academicoTab === "faculdade" && (
-                  <div className="space-y-8">
-                    <p className="mx-auto max-w-3xl text-center text-sm text-zinc-600">
-                      Projetos desenvolvidos durante a graduação em Análise e
-                      Desenvolvimento de Sistemas, utilizando práticas de metodologias
-                      ágeis, como sprints e dailies. A proposta da faculdade era aproximar
-                      os alunos da dinâmica real do mercado de tecnologia desde o início da
-                      formação.
+                <div className="space-y-4 text-left">
+                  <div>
+                    <div className="text-xl font-extrabold text-zinc-900">
+                      Amanda Geovanna
+                    </div>
+                    <div
+                      className="mt-1 text-sm font-medium"
+                      style={{ color: theme.accent }}
+                    >
+                      Estagiária de Engenharia de Dados
+                    </div>
+                  </div>
+
+                  <div className="space-y-4">
+                    <p className="text-base leading-relaxed text-zinc-700">
+                      Oi! Eu sou a Amanda e estou atualmente construindo minha
+                      jornada em <strong>Engenharia de Dados</strong>. No{" "}
+                      <strong>Itaú</strong>, atuo na comunidade{" "}
+                      <strong>Esteira Única de Investimentos</strong>, dentro da{" "}
+                      <strong>Squad PosMov</strong>, trabalhando na modernização
+                      da jornada de dados de investimentos.
                     </p>
 
-                    <div className="space-y-6">
-                      {faculdadeProjects.map((project, index) => (
-                        <FacultyProjectCard
-                          key={project.title}
-                          project={project}
-                          theme={theme}
-                          reverse={index % 2 !== 0}
-                          onOpenImage={openProjectImageModal}
-                        />
-                      ))}
-                    </div>
+                    <p className="text-base leading-relaxed text-zinc-700">
+                      Durante o estágio, atuei em etapas do pipeline como{" "}
+                      <strong>ingestão</strong>, <strong>processamento</strong>{" "}
+                      e <strong>validação de dados</strong>, contribuindo para a
+                      qualidade das informações utilizadas pelo negócio.
+                    </p>
 
-                    <ImageModal
-                      images={modalImages}
-                      selectedIndex={modalIndex}
-                      onSelect={setModalIndex}
-                      onClose={() => {
-                        setModalImages([]);
-                        setModalIndex(0);
-                      }}
-                    />
+                    <p className="text-base leading-relaxed text-zinc-700">
+                      No dia a dia, trabalho com <strong>AWS</strong> (Glue,
+                      Athena, S3, Lambda e CloudWatch), além de{" "}
+                      <strong>Python</strong>, <strong>PySpark</strong> e{" "}
+                      <strong>SQL</strong>.
+                    </p>
+
+                    <p className="text-base leading-relaxed text-zinc-700">
+                      Busco crescer na área de tecnologia explorando soluções em{" "}
+                      <strong> dados, desenvolvimento e cloud</strong>, e
+                      contribuindo com soluções que façam a diferença para o
+                      time e para o negócio.
+                    </p>
                   </div>
-                )}
-              </div>
-            )}
 
-            {/* ITAÚ */}
-            {active === "itau" && (
-              <div className="space-y-10 text-left">
-                <div className="space-y-2 text-center">
-                  <h1
-                    className="text-2xl font-extrabold tracking-tight sm:text-3xl"
-                    style={{ color: "var(--accent)" }}
-                  >
-                    Trajetória no Itaú
-                  </h1>
-                  <p className="mx-auto max-w-2xl text-xs leading-relaxed text-zinc-600 sm:text-sm">
-                    Evolução durante o estágio na <strong>squad PosMov2</strong>{" "}
-                    da <strong>RT Esteira Única de Investimentos</strong>,
-                    participando da modernização da jornada de dados de
-                    investimentos.
-                  </p>
+                  <div className="space-y-3 pt-2">
+                    <div className="flex flex-wrap justify-start gap-2">
+                      <a
+                        href="/Amanda_Baptista_CV.pdf"
+                        download
+                        className="rounded-xl px-4 py-2 text-xs font-semibold text-zinc-900 shadow-sm transition hover:opacity-90"
+                        style={{ background: theme.accent }}
+                      >
+                        Download CV
+                      </a>
+                      <a
+                        href="https://www.linkedin.com/in/amandageovanna/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="rounded-xl border bg-white/60 px-4 py-2 text-xs font-semibold text-zinc-900 transition hover:bg-white"
+                        style={{ borderColor: "rgba(0,0,0,.10)" }}
+                      >
+                        Fale comigo
+                      </a>
+                    </div>
+                  </div>
                 </div>
+              </div>
+            </div>
+          )}
 
-                <div className="relative mx-auto max-w-3xl">
-                  <div
-                    className="absolute left-4 top-0 h-full w-[2px]"
-                    style={{ background: "var(--accentSoft)" }}
-                  />
-                  <div className="space-y-10">
-                    {itauTimeline.map((item, idx) => (
-                      <TimelineItem key={idx} item={item} />
+          {/* RESUME */}
+          {active === "resume" && (
+            <div className="space-y-10 text-left">
+              <div className="space-y-2 text-center">
+                <h1
+                  className="text-2xl font-extrabold tracking-tight sm:text-3xl"
+                  style={{ color: "var(--accent)" }}
+                >
+                  Resumo Profissional
+                </h1>
+                <p className="mx-auto max-w-2xl text-xs leading-relaxed text-zinc-600 sm:text-sm">
+                  Uma visão resumida da minha formação e trajetória
+                  profissional.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+                <div className="space-y-5">
+                  <div className="flex items-center justify-start gap-2 text-lg font-extrabold text-zinc-900">
+                    <GraduationCap
+                      className="h-5 w-5"
+                      style={{ color: "var(--accent)" }}
+                    />
+                    Educação
+                  </div>
+
+                  <div className="space-y-4">
+                    {educationItems.map((item) => (
+                      <EducationCard
+                        key={item.curso}
+                        item={item}
+                        theme={theme}
+                      />
                     ))}
                   </div>
                 </div>
 
-                <div className="space-y-6 pt-6">
-                  <div className="text-center">
-                    <h2
-                      className="text-2xl font-extrabold"
+                <div className="space-y-5">
+                  <div className="flex items-center justify-start gap-2 text-lg font-extrabold text-zinc-900">
+                    <Briefcase
+                      className="h-5 w-5"
                       style={{ color: "var(--accent)" }}
-                    >
-                      Badges
-                    </h2>
-                    <p className="mt-2 text-sm text-zinc-600">
-                      Reconhecimentos e trilhas concluídas durante o estágio.
-                    </p>
+                    />
+                    Experiências
                   </div>
 
-                  <div className="flex flex-wrap justify-center gap-6">
-                    <Badge
-                      href="https://www.credly.com/badges/d0121974-6ef7-4e53-8b2c-085d01e0aaf6/linked_in_profile"
-                      src="https://media.licdn.com/dms/image/v2/D4D2DAQG4i4WuwIbHYg/profile-treasury-image-shrink_800_800/B4DZcSKcDgGgAc-/0/1748356416412?e=1773198000&v=beta&t=m-5niTAXuJxeVb7jacgxnGJ2Z4YNvC3dHKw43RYV7wI"
-                      alt="Badge Itaú 1"
+                  <div className="space-y-4">
+                    {experienceItems.map((xp) => (
+                      <ExperienceCard
+                        key={`${xp.empresa}-${xp.cargo}`}
+                        xp={xp}
+                        theme={theme}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+                <div className="space-y-5">
+                  <div className="flex items-center gap-2 text-left text-lg font-extrabold text-zinc-900">
+                    <Code
+                      className="h-5 w-5"
+                      style={{ color: "var(--accent)" }}
                     />
-                    <Badge
-                      href="https://www.credly.com/badges/7d6e0f65-97fa-4d48-9be1-cd5de34760dc/linked_in_profile"
-                      src="https://media.licdn.com/dms/image/v2/D4D2DAQHwewmVnzP8Aw/profile-treasury-image-shrink_480_480/B4DZp1pYH_JMAM-/0/1762910372862?e=1773198000&v=beta&t=SRB2XqW31t_rHF95PE7Lsj0kHTYZMmRv6JcJ9NKDMhQ"
-                      alt="Badge Itaú 2"
+                    Skills (Dados)
+                  </div>
+
+                  <div className="max-w-xl rounded-2xl border bg-white/60 p-5 text-left shadow-sm">
+                    <TechPillGroup
+                      items={["Python", "SQL", "PySpark", "ETL", "Terraform"]}
                     />
-                    <Badge
-                      href="https://www.credly.com/badges/7a56af1e-e460-448a-b8e6-1ae704431a34/linked_in_profile"
-                      src="https://media.licdn.com/dms/image/v2/D4D2DAQHJEce7JgA-Aw/profile-treasury-image-shrink_8192_8192/B4DZpuSp18KIAg-/0/1762786983729?e=1773198000&v=beta&t=pRpDFzGxEmmf6JsW2a0mtkTY6Nk-kJfmgIAH0erbdyo"
-                      alt="Badge Itaú 3"
+                  </div>
+                </div>
+
+                <div className="space-y-5">
+                  <div className="flex items-center gap-2 text-left text-lg font-extrabold text-zinc-900">
+                    <Cloud
+                      className="h-5 w-5"
+                      style={{ color: "var(--accent)" }}
                     />
-                    {/* Duplicado do Resumo Acadêmico (Cloud Practitioner) */}
-                    <Badge
-                      href="https://www.credly.com/badges/ca2e8b00-b44c-4b27-973a-4f781925d5f4/linked_in_profile"
-                      src="https://images.credly.com/size/340x340/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png"
-                      alt="AWS Cloud Practitioner Badge"
+                    Cloud / Ferramentas
+                  </div>
+
+                  <div className="max-w-xl rounded-2xl border bg-white/60 p-5 text-left shadow-sm">
+                    <TechPillGroup
+                      items={[
+                        "AWS Glue",
+                        "S3",
+                        "Athena",
+                        "Lambda",
+                        "Step Functions",
+                        "CloudWatch",
+                        "Terraform",
+                        "ECS",
+                      ]}
                     />
                   </div>
                 </div>
               </div>
-            )}
+            </div>
+          )}
+
+          {/* DEDICAÇÃO */}
+          {active === "dedicacao" && (
+            <div className="space-y-10">
+              <div className="space-y-2 text-center">
+                <h1
+                  className="text-2xl font-extrabold tracking-tight sm:text-3xl"
+                  style={{ color: "var(--accent)" }}
+                >
+                  Resumo Acadêmico
+                </h1>
+                <p className="mx-auto max-w-2xl text-xs leading-relaxed text-zinc-600 sm:text-sm">
+                  Estudos, projetos e experiências que fazem parte da minha
+                  formação.
+                </p>
+              </div>
+
+              <div className="flex flex-wrap items-center justify-center gap-6 text-sm font-semibold">
+                {[
+                  { id: "dados", label: "Dados" },
+                  { id: "faculdade", label: "Faculdade" },
+                ].map((t) => {
+                  const isActiveTab = academicoTab === t.id;
+                  return (
+                    <button
+                      key={t.id}
+                      onClick={() => setAcademicoTab(t.id)}
+                      className="relative px-1 pb-2 transition"
+                      style={{
+                        color: isActiveTab ? theme.accent : "#3f3f46",
+                      }}
+                    >
+                      {t.label}
+                      {isActiveTab ? (
+                        <span
+                          className="absolute left-0 right-0 -bottom-[1px] mx-auto h-[2px] rounded-full"
+                          style={{ background: theme.accent }}
+                        />
+                      ) : null}
+                    </button>
+                  );
+                })}
+              </div>
+
+              {academicoTab === "dados" && (
+                <div className="space-y-10">
+                  <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+                    <div className="rounded-2xl border bg-white/60 p-6 shadow-sm">
+                      <div className="text-base font-extrabold text-zinc-900">
+                        Apache Spark
+                      </div>
+                      <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-zinc-700">
+                        <li>
+                          Configurei o Apache Spark e explorei DataFrames para
+                          manipulação de dados em Python.
+                        </li>
+                        <li>
+                          Trabalhei com dados do Cadastro de CNPJs da Receita
+                          Federal, realizando transformações, consultas e
+                          operações de limpeza.
+                        </li>
+                        <li>
+                          Utilizei Spark SQL e armazenei dados em formatos como
+                          CSV e Parquet.
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div className="rounded-2xl border bg-white/60 p-6 shadow-sm">
+                      <div className="text-base font-extrabold text-zinc-900">
+                        Apache Airflow
+                      </div>
+                      <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-zinc-700">
+                        <li>
+                          Criei e automatizei pipelines estruturando DAGs com
+                          tasks e operators.
+                        </li>
+                        <li>
+                          Desenvolvi um projeto para agendar um pipeline semanal
+                          de previsões meteorológicas.
+                        </li>
+                      </ul>
+                      <a
+                        href="https://github.com/amandageovanna/turismo-dados-pipeline"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-4 inline-block text-sm font-semibold"
+                        style={{ color: "var(--accent)" }}
+                      >
+                        Ver repositório no GitHub
+                      </a>
+                    </div>
+
+                    <div className="rounded-2xl border bg-white/60 p-6 shadow-sm">
+                      <div className="text-base font-extrabold text-zinc-900">
+                        Databricks
+                      </div>
+                      <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-zinc-700">
+                        <li>Configurei clusters e trabalhei com notebooks.</li>
+                        <li>
+                          Explorei Delta Lake, arquitetura Medallion e DLT.
+                        </li>
+                        <li>
+                          Utilizei Hive e SparkSQL para processamento de dados.
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div className="rounded-2xl border bg-white/60 p-6 shadow-sm">
+                      <div className="text-base font-extrabold text-zinc-900">
+                        AWS Data Lake: Pipeline para Ingestão de Dados
+                      </div>
+                      <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-zinc-700">
+                        <li>
+                          Implementei pipeline de ingestão de dados externos
+                          usando S3, IAM e Lake Formation.
+                        </li>
+                        <li>
+                          Utilizei Python e Boto3 para automação da ingestão.
+                        </li>
+                        <li>
+                          Monitorei custos e execução com CloudWatch e AWS
+                          Budgets.
+                        </li>
+                      </ul>
+                      <a
+                        href="https://github.com/amandageovanna/ingestao-dados-aws-pipeline/tree/main"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-4 inline-block text-sm font-semibold"
+                        style={{ color: "var(--accent)" }}
+                      >
+                        Ver repositório no GitHub
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="space-y-6">
+                    <div className="text-center">
+                      <h2
+                        className="text-3xl font-extrabold"
+                        style={{ color: "var(--accent)" }}
+                      >
+                        Badges
+                      </h2>
+                    </div>
+
+                    <div className="flex flex-wrap justify-center gap-6">
+                      <Badge
+                        href="https://credentials.databricks.com/02b24b55-e3e4-4be0-8d1b-d18212e99b47"
+                        src="https://www.databricks.com/sites/default/files/inline-images/fundamentals-badge-databricks-2x_1.png"
+                        alt="Databricks Fundamentals Badge"
+                      />
+                      <Badge
+                        href="https://www.credly.com/badges/ca2e8b00-b44c-4b27-973a-4f781925d5f4/linked_in_profile"
+                        src="https://images.credly.com/size/340x340/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png"
+                        alt="AWS Cloud Practitioner Badge"
+                      />
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {academicoTab === "faculdade" && (
+                <div className="space-y-8">
+                  <p className="mx-auto max-w-3xl text-center text-sm text-zinc-600">
+                    Projetos desenvolvidos durante a graduação em Análise e
+                    Desenvolvimento de Sistemas, utilizando práticas de
+                    metodologias ágeis, como sprints e dailies. A proposta da
+                    faculdade era aproximar os alunos da dinâmica real do
+                    mercado de tecnologia desde o início da formação.
+                  </p>
+
+                  <div className="space-y-6">
+                    {faculdadeProjects.map((project, index) => (
+                      <FacultyProjectCard
+                        key={project.title}
+                        project={project}
+                        theme={theme}
+                        reverse={index % 2 !== 0}
+                        onOpenImage={openProjectImageModal}
+                      />
+                    ))}
+                  </div>
+
+                  <ImageModal
+                    images={modalImages}
+                    selectedIndex={modalIndex}
+                    onSelect={setModalIndex}
+                    onClose={() => {
+                      setModalImages([]);
+                      setModalIndex(0);
+                    }}
+                  />
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* ITAÚ */}
+          {active === "itau" && (
+            <div className="space-y-10 text-left">
+              <div className="space-y-2 text-center">
+                <h1
+                  className="text-2xl font-extrabold tracking-tight sm:text-3xl"
+                  style={{ color: "var(--accent)" }}
+                >
+                  Trajetória no Itaú
+                </h1>
+                <p className="mx-auto max-w-2xl text-xs leading-relaxed text-zinc-600 sm:text-sm">
+                  Evolução durante o estágio na <strong>squad PosMov2</strong>{" "}
+                  da <strong>RT Esteira Única de Investimentos</strong>,
+                  participando da modernização da jornada de dados de
+                  investimentos.
+                </p>
+              </div>
+
+              <div className="relative mx-auto max-w-3xl">
+                <div
+                  className="absolute left-4 top-0 h-full w-[2px]"
+                  style={{ background: "var(--accentSoft)" }}
+                />
+                <div className="space-y-10">
+                  {itauTimeline.map((item, idx) => (
+                    <TimelineItem key={idx} item={item} />
+                  ))}
+                </div>
+              </div>
+
+              <div className="space-y-6 pt-6">
+                <div className="text-center">
+                  <h2
+                    className="text-2xl font-extrabold"
+                    style={{ color: "var(--accent)" }}
+                  >
+                    Badges
+                  </h2>
+                  <p className="mt-2 text-sm text-zinc-600">
+                    Reconhecimentos e trilhas concluídas durante o estágio.
+                  </p>
+                </div>
+
+                <div className="flex flex-wrap justify-center gap-6">
+                  <Badge
+                    href="https://www.credly.com/badges/d0121974-6ef7-4e53-8b2c-085d01e0aaf6/linked_in_profile"
+                    src="https://media.licdn.com/dms/image/v2/D4D2DAQG4i4WuwIbHYg/profile-treasury-image-shrink_800_800/B4DZcSKcDgGgAc-/0/1748356416412?e=1773198000&v=beta&t=m-5niTAXuJxeVb7jacgxnGJ2Z4YNvC3dHKw43RYV7wI"
+                    alt="Badge Itaú 1"
+                  />
+                  <Badge
+                    href="https://www.credly.com/badges/7d6e0f65-97fa-4d48-9be1-cd5de34760dc/linked_in_profile"
+                    src="https://media.licdn.com/dms/image/v2/D4D2DAQHwewmVnzP8Aw/profile-treasury-image-shrink_480_480/B4DZp1pYH_JMAM-/0/1762910372862?e=1773198000&v=beta&t=SRB2XqW31t_rHF95PE7Lsj0kHTYZMmRv6JcJ9NKDMhQ"
+                    alt="Badge Itaú 2"
+                  />
+                  <Badge
+                    href="https://www.credly.com/badges/7a56af1e-e460-448a-b8e6-1ae704431a34/linked_in_profile"
+                    src="https://media.licdn.com/dms/image/v2/D4D2DAQHJEce7JgA-Aw/profile-treasury-image-shrink_8192_8192/B4DZpuSp18KIAg-/0/1762786983729?e=1773198000&v=beta&t=pRpDFzGxEmmf6JsW2a0mtkTY6Nk-kJfmgIAH0erbdyo"
+                    alt="Badge Itaú 3"
+                  />
+                  {/* Duplicado do Resumo Acadêmico (Cloud Practitioner) */}
+                  <Badge
+                    href="https://www.credly.com/badges/ca2e8b00-b44c-4b27-973a-4f781925d5f4/linked_in_profile"
+                    src="https://images.credly.com/size/340x340/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png"
+                    alt="AWS Cloud Practitioner Badge"
+                  />
+                </div>
+              </div>
+            </div>
+          )}
         </main>
       </div>
     </div>
