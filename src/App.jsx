@@ -538,22 +538,22 @@ export default function PortfolioBaseLayout() {
       title: "CareTech",
       semestre: "2º semestre",
       description:
-        "Sistema em Java para monitoramento de estações de trabalho em call centers hospitalares, acompanhando indicadores como CPU, memória e disco para apoiar o controle operacional e a estabilidade das máquinas.",
+        "Sistema desenvolvido em Java para monitoramento de estações de trabalho em call centers hospitalares, acompanhando CPU, memória e disco para apoiar a estabilidade operacional e facilitar o acompanhamento técnico dos equipamentos.",
       highlights: [
-        "Monitoramento de recursos da máquina em ambiente hospitalar.",
-        "Aplicação de conceitos de ITIL e organização do fluxo de suporte.",
-        "Projeto com foco em desempenho e acompanhamento técnico.",
+        "Monitoramento de recursos da máquina (CPU, memória e disco)",
+        "Aplicação de conceitos de ITIL",
+        "Projeto voltado para contexto de call center hospitalar"
       ],
       link: "https://github.com/CareTech0/aplicacao-web",
-      linkLabel: "Ver no GitHub",
+      linkLabel: "Ver código no GitHub",
       images: [
-        "https://private-user-images.githubusercontent.com/142369084/338597517-24cc1e66-e432-4d7e-9f3f-400a940cfea6.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzMxMDcyNjQsIm5iZiI6MTc3MzEwNjk2NCwicGF0aCI6Ii8xNDIzNjkwODQvMzM4NTk3NTE3LTI0Y2MxZTY2LWU0MzItNGQ3ZS05ZjNmLTQwMGE5NDBjZmVhNi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMzEwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDMxMFQwMTQyNDRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT00NGQzOGYyOTUwZjhkN2Y4MmFjNjg5NWQwMDM4MjRiOTEwMTg5YzVjOTM3ODhiMjU4N2Q4MzZmZTI2N2U3NzI2JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.zjHaUzT1sHzvay4ifctX3qnw8GTlBTCttvh3eczmCkQ",
-        "https://private-user-images.githubusercontent.com/142369084/338680153-16a18458-8a85-40b8-afb2-a8ba2d2d6027.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzMxMDcyNjQsIm5iZiI6MTc3MzEwNjk2NCwicGF0aCI6Ii8xNDIzNjkwODQvMzM4NjgwMTUzLTE2YTE4NDU4LThhODUtNDBiOC1hZmIyLWE4YmEyZDJkNjAyNy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMzEwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDMxMFQwMTQyNDRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1lYmI4MDUzNDAwMzdlMTEzZDgxOWEyZjU5N2ZkYWFmOGM1Yjc1ZDMxY2Q3MTJjZGU1NGVhZWMyNzdhODU0MmYzJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.EgC3BiLBI0A-SoVdwKVv70N9QhrhihSD_6ump0V7Gyk",
-        "https://private-user-images.githubusercontent.com/142369084/338673680-44cd0d4d-e879-4f05-a7b8-f1c6b0fc5ab4.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzMxMDcyNjQsIm5iZiI6MTc3MzEwNjk2NCwicGF0aCI6Ii8xNDIzNjkwODQvMzM4NjczNjgwLTQ0Y2QwZDRkLWU4NzktNGYwNS1hN2I4LWYxYzZiMGZjNWFiNC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMzEwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDMxMFQwMTQyNDRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0zNmE4NDBhMjI2MWMyZDlmYmI3Yzg1YjYwZDExYWM2NzNkZDlmYjdhYjU5NmZjNjRiNGJlNDk5MTNiNjQ1YjJiJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.-9Gufsgo8b1i4DdOnRfA32g6Jlw7W5VpkcZCC_5Q0iM",
-        "https://private-user-images.githubusercontent.com/142369084/338617479-18787744-d581-4403-b94a-e30c5f1864e7.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzMxMDcyNjQsIm5iZiI6MTc3MzEwNjk2NCwicGF0aCI6Ii8xNDIzNjkwODQvMzM4NjE3NDc5LTE4Nzg3NzQ0LWQ1ODEtNDQwMy1iOTRhLWUzMGM1ZjE4NjRlNy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMzEwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDMxMFQwMTQyNDRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT01ZTA5YTVhMDY2MTlmNzJhNDM0ODMzN2JiY2NlYTdhOWIyZDc5MWZkZWQ0OTA0YWFiN2IxMTE4MWY1MDk1OTBmJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.OfKNVICAn7Uj6kZdxmkqQhClUAVFuXoIRpIE1O7tfHM",
-        "https://private-user-images.githubusercontent.com/142369084/338617185-20efb8a1-0d7a-4d9d-969c-07437ff94043.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzMxMDcyNjQsIm5iZiI6MTc3MzEwNjk2NCwicGF0aCI6Ii8xNDIzNjkwODQvMzM4NjE3MTg1LTIwZWZiOGExLTBkN2EtNGQ5ZC05NjljLTA3NDM3ZmY5NDA0My5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMzEwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDMxMFQwMTQyNDRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT04ODNiYTQxNmY4ZmZkNmNjMDM1YTRhNTI2ODk5NzQ4MTZiMzFkYzE2NTBmMWRkOTBkZWZjZWJhYjRlMTRiMjQ5JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.4idw7mVxuWzO7ngT4WRAK9__y9N8wFiKlV1LsyHNrdI",
-        "https://private-user-images.githubusercontent.com/142369084/334921428-67aaf704-8b4b-4094-a153-220a478ff25f.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzMxMDcyNjQsIm5iZiI6MTc3MzEwNjk2NCwicGF0aCI6Ii8xNDIzNjkwODQvMzM0OTIxNDI4LTY3YWFmNzA0LThiNGItNDA5NC1hMTUzLTIyMGE0NzhmZjI1Zi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMzEwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDMxMFQwMTQyNDRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1jMjA2YTIxODM3NmQ5ZDE1NzE1ZTU3N2VkMGFjMjhhNDczOTUyODJmMTdkMGIyNmU5ODJkNzc0OGYxMWMzNWJjJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.j0WI2HdClSNm4ayGdD5090-FUEHQ7sdFf3TZHXnmYuA",
-      ],
+        "/snapshots/caretech1.png",
+        "/snapshots/caretech2.png",
+        "/snapshots/caretech3.png",
+        "/snapshots/caretech4.png",
+        "/snapshots/caretech5.png",
+        "/snapshots/caretech6.png"
+      ]
     },
     {
       title: "WineTech",
