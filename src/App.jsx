@@ -380,17 +380,29 @@ function FacultyProjectCard({ project, onOpenImage, theme, reverse = false }) {
               {project.semestre}
             </span>
 
-            {project.link ? (
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm font-semibold"
-                style={{ color: "var(--accent)" }}
-              >
-                {project.linkLabel || "Ver projeto"}
-              </a>
-            ) : null}
+            <div className="flex flex-wrap gap-3">
+              {project.figma && (
+                <a
+                  href={project.figma}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-xl border px-3 py-1 text-xs font-semibold transition hover:bg-zinc-50"
+                >
+                  Protótipo (Figma)
+                </a>
+              )}
+
+              {project.repo && (
+                <a
+                  href={project.repo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-xl border px-3 py-1 text-xs font-semibold transition hover:bg-zinc-50"
+                >
+                  Código (GitHub)
+                </a>
+              )}
+            </div>
           </div>
 
           <div>
@@ -518,17 +530,19 @@ export default function PortfolioBaseLayout() {
       title: "bridee.",
       semestre: "3º e 4º semestre",
       description:
-        "Plataforma para organização de casamentos que conecta noivas e assessores. O projeto buscava centralizar a jornada de planejamento em um só lugar, com gestão financeira, checklist, catálogo de fornecedores e uma experiência mais personalizada.",
+        "Plataforma para organização de casamentos que conecta noivas e assessores. O projeto buscava centralizar a jornada de planejamento em um só lugar, com gestão financeira, checklist, catálogo de fornecedores e experiência personalizada.",
       highlights: [
-        "Projeto com foco em organização completa da jornada de casamento.",
-        "Conexão entre noivas, assessores e fornecedores.",
-        "Protótipo com telas pensadas para facilitar planejamento e acompanhamento.",
+        "Conexão entre noivas, assessores e fornecedores",
+        "Planejamento de casamento centralizado em uma única plataforma",
+        "Protótipo de interface desenvolvido no Figma"
       ],
-      link: "https://www.figma.com/design/7aDrzFLyKVUI0c9rbtZ3qT/bridee.?node-id=64-2&p=f&t=nodPzeAl8nnxYig9-0",
-      linkLabel: "Ver protótipo no Figma",
+
+      figma: "https://www.figma.com/design/7aDrzFLyKVUI0c9rbtZ3qT/bridee.?node-id=64-2&p=f&t=nodPzeAl8nnxYig9-0",
+      repo: "https://github.com/Bridee-Solutions",
+
       images: [
         "/snapshots/bridee1.png",
-        "/snapshots/bridee6.png",
+        "/snapshots/bridee2.jpeg",
         "/snapshots/bridee3.png",
         "/snapshots/bridee4.png",
         "/snapshots/bridee5.png",
@@ -545,7 +559,7 @@ export default function PortfolioBaseLayout() {
         "Projeto voltado para contexto de call center hospitalar"
       ],
       link: "https://github.com/CareTech0/aplicacao-web",
-      linkLabel: "Ver código no GitHub",
+      linkLabel: "Ver repositório no GitHub",
       images: [
         "/snapshots/caretech1.png",
         "/snapshots/caretech2.png",
