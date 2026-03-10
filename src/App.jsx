@@ -545,7 +545,7 @@ export default function PortfolioBaseLayout() {
 
       images: [
         "/snapshots/bridee1.png",
-        "/snapshots/bridee6.jpeg",
+        "/snapshots/bridee6.png",
         "/snapshots/bridee3.png",
         "/snapshots/bridee4.png",
         "/snapshots/bridee5.png",
