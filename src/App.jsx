@@ -531,12 +531,15 @@ export default function PortfolioBaseLayout() {
       semestre: "3º e 4º semestre",
       description:
         "Plataforma para organização de casamentos que conecta noivas e assessores. O projeto buscava centralizar a jornada de planejamento em um só lugar, com gestão financeira, checklist, catálogo de fornecedores e experiência personalizada.",
-      highlights: [
-        "Conexão entre noivas, assessores e fornecedores",
-        "Planejamento de casamento centralizado em uma única plataforma",
-        "Protótipo de interface desenvolvido no Figma"
+      highlights: [      
+      "Gestão financeira do casamento com calculadora de orçamento",
+      "Convites personalizados com gerenciamento integrado ao WhatsApp",
+      "Lista de tarefas personalizada com filtros para organização do evento",
+      "Catálogo de fornecedores conectando noivas a assessores e prestadores",
+      "Painel com visão geral do planejamento do casamento",
+      "Calendário para assessores gerenciarem casamentos aceitos",
+      "Fluxo de conexão noiva–assessor com aceite e inclusão automática no calendário"      
       ],
-
       figma: "https://www.figma.com/design/7aDrzFLyKVUI0c9rbtZ3qT/bridee.?node-id=64-2&p=f&t=nodPzeAl8nnxYig9-0",
       repo: "https://github.com/Bridee-Solutions",
 
