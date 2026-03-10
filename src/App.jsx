@@ -906,6 +906,47 @@ export default function PortfolioBaseLayout() {
                         <InterestItem icon={Puzzle} label="Quebra-cabeças" />
                       </div>
                     </div>
+
+                    <div className="w-full space-y-3">
+                      <div className="text-lg font-bold text-zinc-900">
+                        Quem é a Amanda
+                      </div>
+
+                      <div className="grid w-full grid-cols-1 gap-3 sm:grid-cols-2">
+
+                        <div className="rounded-xl border bg-white/70 p-3 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+                          <div className="text-xl">💬</div>
+                          <div className="mt-1 text-sm font-semibold text-zinc-900">
+                            Comunicativa
+                          </div>
+                          <div className="mt-1 text-xs leading-relaxed text-zinc-600">
+                            Facilidade para trocar ideias, explicar pontos com clareza e colaborar com o time.
+                          </div>
+                        </div>
+
+                        <div className="rounded-xl border bg-white/70 p-3 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+                          <div className="text-xl">⚡</div>
+                          <div className="mt-1 text-sm font-semibold text-zinc-900">
+                            Desenrolada
+                          </div>
+                          <div className="mt-1 text-xs leading-relaxed text-zinc-600">
+                            Costumo me adaptar rápido e buscar soluções práticas para os desafios do dia a dia.
+                          </div>
+                        </div>
+
+                        <div className="rounded-xl border bg-white/70 p-3 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+                          <div className="text-xl">🌱</div>
+                          <div className="mt-1 text-sm font-semibold text-zinc-900">
+                            Curiosa
+                          </div>
+                          <div className="mt-1 text-xs leading-relaxed text-zinc-600">
+                            Gosto de aprender coisas novas e explorar diferentes ferramentas e tecnologias.
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+
                   </div>
 
                   <div className="space-y-4 text-left">
