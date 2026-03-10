@@ -587,7 +587,8 @@ export default function PortfolioBaseLayout() {
 
         "https://media.licdn.com/dms/image/v2/D4D22AQE0MAFQKG13RA/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1702522230854?e=1774483200&v=beta&t=Brr1MbXTWIB2tMLE6JJeE0k9633z2dDb64rWT3Rkgiw",
 
-        "https://i0.wp.com/reserva85.com.br/wp-content/uploads/2020/10/V%C3%ADnicola-onde-se-faz-o-vinho.jpg?fit=1119%2C780&ssl=1"
+        "https://i0.wp.com/reserva85.com.br/wp-content/uploads/2020/10/V%C3%ADnicola-onde-se-faz-o-vinho.jpg?fit=1119%2C780&ssl=1",
+        "/snapshots/winetech3.png"
       ]
     },
   ],
