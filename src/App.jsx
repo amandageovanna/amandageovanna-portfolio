@@ -728,9 +728,9 @@ export default function PortfolioBaseLayout() {
           style={{ background: theme.sidebar }}
         >
           <img
-            src="/logo-amanda.svg"
+            src="/logoamanda.png"
             alt="Amanda G."
-            className="h-12 w-auto"
+            className="h-14 w-auto object-contain"
           />
 
           <nav className="flex flex-1 flex-col gap-2">
