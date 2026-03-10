@@ -558,8 +558,7 @@ export default function PortfolioBaseLayout() {
         "Aplicação de conceitos de ITIL",
         "Projeto voltado para contexto de call center hospitalar"
       ],
-      link: "https://github.com/CareTech0/aplicacao-web",
-      linkLabel: "Ver repositório no GitHub",
+      repo: "https://github.com/CareTech0/aplicacao-web",
       images: [
         "/snapshots/caretech1.png",
         "/snapshots/caretech2.png",
