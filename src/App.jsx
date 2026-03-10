@@ -518,18 +518,20 @@ export default function PortfolioBaseLayout() {
       title: "bridee.",
       semestre: "3º e 4º semestre",
       description:
-        "Plataforma para organização de casamentos que conecta noivas e assessores. O projeto buscava centralizar a jornada de planejamento em um só lugar, com gestão financeira, checklist, catálogo de fornecedores e experiência mais personalizada para os usuários.",
+        "Plataforma para organização de casamentos que conecta noivas e assessores. O projeto buscava centralizar a jornada de planejamento em um só lugar, com gestão financeira, checklist, catálogo de fornecedores e uma experiência mais personalizada.",
       highlights: [
-        "Foco em organização completa do casamento em uma única plataforma.",
+        "Projeto com foco em organização completa da jornada de casamento.",
         "Conexão entre noivas, assessores e fornecedores.",
-        "Projeto pensado com visão de produto e experiência do usuário.",
+        "Protótipo com telas pensadas para facilitar planejamento e acompanhamento.",
       ],
-      link: "https://github.com/Bridee-Solutions",
-      linkLabel: "Ver no GitHub",
+      link: "https://www.figma.com/design/7aDrzFLyKVUI0c9rbtZ3qT/bridee.?node-id=64-2&p=f&t=nodPzeAl8nnxYig9-0",
+      linkLabel: "Ver protótipo no Figma",
       images: [
-        "https://aceitosim.com.br/wp-content/uploads/2018/08/casamento-a-tarde-01.jpg",
-        "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1200&q=80",
+        "/snapshots/bridee1.png",
+        "/snapshots/bridee2.png",
+        "/snapshots/bridee3.png",
+        "/snapshots/bridee4.png",
+        "/snapshots/bridee5.png",
       ],
     },
     {
