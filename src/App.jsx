@@ -1385,17 +1385,17 @@ export default function PortfolioBaseLayout() {
                   <div className="flex flex-wrap justify-center gap-6">
                     <Badge
                       href="https://www.credly.com/badges/d0121974-6ef7-4e53-8b2c-085d01e0aaf6/linked_in_profile"
-                      src="https://media.licdn.com/dms/image/v2/D4D2DAQG4i4WuwIbHYg/profile-treasury-image-shrink_800_800/B4DZcSKcDgGgAc-/0/1748356416412?e=1773198000&v=beta&t=m-5niTAXuJxeVb7jacgxnGJ2Z4YNvC3dHKw43RYV7wI"
+                      src="badge1.png"
                       alt="Badge Itaú 1"
                     />
                     <Badge
                       href="https://www.credly.com/badges/7d6e0f65-97fa-4d48-9be1-cd5de34760dc/linked_in_profile"
-                      src="https://media.licdn.com/dms/image/v2/D4D2DAQHwewmVnzP8Aw/profile-treasury-image-shrink_480_480/B4DZp1pYH_JMAM-/0/1762910372862?e=1773198000&v=beta&t=SRB2XqW31t_rHF95PE7Lsj0kHTYZMmRv6JcJ9NKDMhQ"
+                      src="badge2.png"
                       alt="Badge Itaú 2"
                     />
                     <Badge
                       href="https://www.credly.com/badges/7a56af1e-e460-448a-b8e6-1ae704431a34/linked_in_profile"
-                      src="https://media.licdn.com/dms/image/v2/D4D2DAQHJEce7JgA-Aw/profile-treasury-image-shrink_8192_8192/B4DZpuSp18KIAg-/0/1762786983729?e=1773198000&v=beta&t=pRpDFzGxEmmf6JsW2a0mtkTY6Nk-kJfmgIAH0erbdyo"
+                      src="badge3.png"
                       alt="Badge Itaú 3"
                     />
                     {/* Duplicado do Resumo Acadêmico (Cloud Practitioner) */}
