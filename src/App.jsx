@@ -615,7 +615,7 @@ export default function PortfolioBaseLayout() {
     () => [
       {
         curso: "SIS — Impacta Tecnologia",
-        logo: "https://media.licdn.com/dms/image/v2/C4D0BAQEG8qandFQNjw/company-logo_200_200/company-logo_200_200/0/1630550349647/impacta_tecnologia_logo?e=1773878400&v=beta&t=pBbNqG1bPEK81tbnRrv-OHdTc7mYXqFpCDBtej6lfGY",
+        logo: "/impacta_tecnologia_logo.jpg",
         detalhe: "Bacharelado em Sistemas de Informação",
         periodo: "2025–2028",
       },
@@ -627,7 +627,7 @@ export default function PortfolioBaseLayout() {
       },
       {
         curso: "Enfermagem — UNIP",
-        logo: "https://media.licdn.com/dms/image/v2/D4D0BAQHBvbGquYuc4w/company-logo_100_100/company-logo_100_100/0/1725888891748?e=1773878400&v=beta&t=ytWWb8zAVid2pFW0qWO7pIGjXw0TcEtIceZVKMqQDVU",
+        logo: "/unip.jpg",
         detalhe: "Graduação — Incompleta",
         periodo: "2020–2022",
       },
@@ -641,7 +641,7 @@ export default function PortfolioBaseLayout() {
         empresa: "Estagiária Eng. de Dados",
         cargo: "Itaú",
         periodo: "2025 - Atual",
-        logo: "https://media.licdn.com/dms/image/v2/D4D0BAQGmyPiGIU-69w/company-logo_200_200/B4DZZFc2k4GgAI-/0/1744921914031/itau_logo?e=1773878400&v=beta&t=azgxleKyTLaic1d3U6qkCfd8VwySvELiFpNAjyGe_7g",
+        logo: "/itau_logo.jpg",
       },
       {
         empresa: "Estagiária Salesforce",
@@ -655,13 +655,13 @@ export default function PortfolioBaseLayout() {
         empresa: "Operadora de Atendimento",
         cargo: "Hospital BP",
         periodo: "2021-2023",
-        logo: "https://media.licdn.com/dms/image/v2/C4E0BAQHyz7zwGnYusg/company-logo_200_200/company-logo_200_200/0/1631342193186?e=1773878400&v=beta&t=6z-PFclaXzRKc6E4m1cqB7VrKEAaIvCDIh0I_s5y6go",
+        logo: "/bop.jpg",
       },
       {
         empresa: "Aprendiz",
         cargo: "Hospital Rede D'Or",
         periodo: "2019-2020",
-        logo: "https://media.licdn.com/dms/image/v2/D4D0BAQHN4dv08rV5TA/company-logo_100_100/B4DZpJGxNBH0AQ-/0/1762163103503/rededor_logo?e=1773878400&v=beta&t=HTDOgNmJ30JDoNoYNV7pMLzmQ9roYz_KLt4B2Y1gUGc",
+        logo: "/rededor.jpg",
       },
     ],
     [],
@@ -905,7 +905,7 @@ export default function PortfolioBaseLayout() {
                         style={{ borderColor: "rgba(0,0,0,.18)" }}
                       >
                         <img
-                          src="https://media.licdn.com/dms/image/v2/D4D22AQHkeiYtNvpflg/feedshare-shrink_1280/B4DZlfMedtJMAs-/0/1758238733106?e=1773878400&v=beta&t=xxFUn9KsQekEpaVhIUaD0oLzGmLsBWG_Yw1piwg0o3Y"
+                          src="/fotominha.jpg"
                           alt="Foto"
                           className="h-[320px] w-[320px] object-cover"
                           loading="lazy"
